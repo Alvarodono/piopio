@@ -11,11 +11,10 @@ public class Arrautza {
 	}
 	
 	//BESTE METODOAK
-	
+	//BUELTA EMAN METODOA
 	public void bueltaEman() {
-		//pruebakk
-		
-	}
-	
-	
+		if (!txita) {
+			txita = true;
+		}		
+	}	
 }
