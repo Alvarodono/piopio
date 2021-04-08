@@ -1,10 +1,11 @@
 package pioupiou;
 
+import java.util.Random;
+
 public class HasierakoBaraja {
 	
 	//ATRIBUTUAK
 	private ListaKarta lista;
-	private int kartaKop = 0;
 	private static HasierakoBaraja nireBaraja = null;
 	
 	//ERAIKITZAILEA
@@ -29,21 +30,35 @@ public class HasierakoBaraja {
 			i++;
 		}
 		while (x<11) {
-			lista.gehituKarta(new Karta ("");
+			lista.gehituKarta(new Karta ("Habia"));
 			x++;
 		}
 		while (p<15) {
-			lista.gehituKarta(new Karta ("");
+			lista.gehituKarta(new Karta ("Oilar"));
 			p++;
 		}
 		while (k<15) {
-			lista.gehituKarta(new Karta (""));
+			lista.gehituKarta(new Karta ("Oilo"));
 			k++;
 		}
+		lista.setKartaKop(47);
 	}
-
+	
+	//RESET METODOA
+	public void reset() {
+		lista.erreseteatu();
+		barajaBete();
+	}
 	
 	
-	
-
+	//BANAKETA METODOA (KARTA BAT BANATZEKO)
+	public Karta banaketa() {
+		Karta k=null;
+		Random r=new Random();
+		if(lista.getKartaKop()>1){
+			int random = r.nextInt(lista.getKartaKop());
+			k=lista.getKarta(random);
+		}
+		return k;
+	}
 }
