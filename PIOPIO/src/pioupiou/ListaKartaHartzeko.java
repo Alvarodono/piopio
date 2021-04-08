@@ -23,4 +23,7 @@ public class ListaKartaHartzeko {
 		 }
 		 return nireListaKartaHartzeko;		
 	}
+	
+	//MULTZOA SORTU METODOA
+	
 }

@@ -16,12 +16,15 @@ public class ListaKartaBaztertzeko {
 	
 	//BESTE METODOAK
 	//GET LISTA KARTA BAZTERTZEKO METODOA
-		public static ListaKartaBaztertzeko getListaKartaBaztertzeko() 
-		{
-	 		if(nireListaKartaBaztertzeko == null) {
-	 			nireListaKartaBaztertzeko = new ListaKartaBaztertzeko();
-	 		}
-	 		return nireListaKartaBaztertzeko;		
-		}
+	public static ListaKartaBaztertzeko getnNireListaKartaBaztertzeko() 
+	{
+	 	if(nireListaKartaBaztertzeko == null) {
+	 		nireListaKartaBaztertzeko = new ListaKartaBaztertzeko();
+	 	}
+	 	return nireListaKartaBaztertzeko;		
+	}
+	
+	
+	
 	
 }
