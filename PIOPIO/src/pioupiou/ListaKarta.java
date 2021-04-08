@@ -7,7 +7,7 @@ public class ListaKarta {
 	
 	//ATRIBUTUAK
 	private ArrayList<Karta> lista;
-	private int kartaKop;
+	private int kartaKop = 0;
 	
 	//ERAIKITZAILEA
 	public ListaKarta() {
@@ -15,31 +15,53 @@ public class ListaKarta {
 	}
 	
 	//BESTE METODOAK
+	//GET KARTA METODOA
 	public Karta getKarta(int pPos) {
 		Karta k = lista.get(pPos);
 		return k;
 	}
 	
+	//KENDU KARTA METODOA
 	public void kenduKarta(int pPos) {
 		lista.remove(pPos);
 		kartaKop--;
-	}
+	}	
 	
-	public void setKartaKop(int pKartaKop) {
-		this.kartaKop = pKartaKop;
-	}
 	
+	//GEHITU KARTA METODOA
 	public void gehituKarta(Karta pKarta) {
 		this.lista.add(pKarta);
 		this.kartaKop++;
 	}
+	
+	//SET KARTA KOP METODOA
+	public void setKartaKop(int pKartaKop) {
+		this.kartaKop = pKartaKop;
+	}
+	
+	//GET KARTA KOP METODOA
+	public int getKartaKop() {
+		return this.kartaKop;
+	}
 		
+	//ERRESETEATU METODOA
 	public void erreseteatu(){
 		this.lista.clear();
 	}
 	
+	//GET ITERADOREA METODOA
 	private Iterator<Karta> getIteradorea(){
 		return this.lista.iterator();
+	}
+	
+	//IMPRIMATU KARTAK METODOA
+	public void imprimatuKartak() {
+		Iterator<Karta> itr = this.getIteradorea();
+		Karta k = null;
+		while (itr.hasNext()) {
+			k = itr.next();
+			k.imprimatuKarta();
+		}
 	}
 }
 
