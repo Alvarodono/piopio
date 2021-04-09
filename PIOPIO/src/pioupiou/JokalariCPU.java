@@ -23,12 +23,11 @@ public class JokalariCPU extends Jokalaria{
 		int i = 0;
 		Karta k = null;
 		Karta kt = this.getEskukoKartak().getKarta(i);
-		String ktm = kt.getMota();
-		
+		String ktm = kt.getMota();	
 		
 			
 				
 	}
 	
 	
-}
+}//BORRAR ESTO

@@ -55,7 +55,7 @@ public class Teklatua {
 	
 	//IRAKURRI STRING METODOA
 	public String irakurriString() {
-		String mezua=this.sc.nextLine();
+		String mezua=Teklatua.sc.nextLine();
 		return mezua;
 	}
 	
