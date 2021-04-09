@@ -1,6 +1,7 @@
 package pioupiou;
 
-import java.util.ArrayList;	
+
+import java.util.Random;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -10,11 +11,11 @@ public class ListaJokalaria {
 	//ATRIBUTUAK
 	private Jokalaria[]lista;
 	private static ListaJokalaria nireListaJokalaria = null;
-	
+	private int jokalariKop = 2;
 	
 	//ERAIKITZAILEA
 	public ListaJokalaria() {
-		this.lista = new Jokalaria[2];
+		this.lista = new Jokalaria[this.jokalariKop];
 	}
 	
 	//BESTE METODOAK
@@ -95,10 +96,12 @@ public class ListaJokalaria {
 		
 		String izena = Teklatua.getNireTeklatua().irakurriString();
 		System.out.println("Sartu zure adina");
-		int adina = Teklatua.getNireTeklatua().irakurriZenb();
-		int adinaCPU = random 
-		this.getNireListaJokalariak().getZerrenda()[0] = new JokalariArrunta(izena,adina);
-		this.getNireListaJokalariak().getZerrenda()[0] = new JokalariCPU(adina);
+		Teklatua.getNireTeklatua();
+		int adina = Teklatua.irakurriZenb();
+		Random rd = new Random();
+		int adinaCPU = rd.nextInt(100)+1;
+		ListaJokalaria.getNireListaJokalariak().getZerrenda()[0] = new JokalariArrunta(izena,adina);
+		ListaJokalaria.getNireListaJokalariak().getZerrenda()[0] = new JokalariCPU(adinaCPU);
 		
 		
 	}
