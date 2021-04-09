@@ -53,7 +53,7 @@ public class ListaJokalaria {
 	public void partidaHasieratu() {
 		File txt= new File ("res/Hasiera.txt");
 		irakurri(txt);
-		int sarrera=Teklatua.getNireTeklatua().irakurriOsoa();
+		int sarrera = Teklatua.getNireTeklatua().irakurriOsoa();
 		try{
 			if(sarrera==1){
 				partidaJolastu();
@@ -73,13 +73,32 @@ public class ListaJokalaria {
 			partidaHasieratu();
 		}
 	}
-		
-		
+	
+	//KARTAK BANATU METODOA
+	public void kartakBanatu() {
+		int kont = 4;
+		while (kont > 0) {
+			Karta k = null;
+			k = HasierakoBaraja.getNireBaraja().banaketa();
+			this.getZerrenda()[0].getEskukoKartak().gehituKarta(k);
+			k = HasierakoBaraja.getNireBaraja().banaketa();
+			this.getZerrenda()[1].getEskukoKartak().gehituKarta(k);
+			kont--;
+		}
+	}		
 	
 	
 	
 	//PARTIDA JOLASTU METODOA	
 	public void partidaJolastu() {
+		System.out.println("Sartu zure izena");
+		
+		String izena = Teklatua.getNireTeklatua().irakurriString();
+		System.out.println("Sartu zure adina");
+		int adina = Teklatua.getNireTeklatua().irakurriString();
+		this.getNireListaJokalariak().getZerrenda()[0] = new JokalariArrunta(izena,adina);
+		this.getNireListaJokalariak().getZerrenda()[0] = new JokalariCPU();
+		
 		
 	}
 	
