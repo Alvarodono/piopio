@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Teklatua {
 	//ATRIBUTUAK
-	private Scanner sc;
+	private static Scanner sc;
 	private static Teklatua nireTeklatua=null;
 	
 
@@ -25,7 +25,7 @@ public class Teklatua {
 	
 	//IRAKURRI OSOSA METODOA
 	public int irakurriOsoa() {
-		String zenb=this.irakurriString();
+		String zenb = this.irakurriString();
 		boolean egokia=false;
 		do {
 			if (zenb.isEmpty()) {
@@ -43,6 +43,13 @@ public class Teklatua {
 			}
 		} while (!egokia);
 		return Integer.parseInt(zenb);
+	}
+	
+	//IRAKURRI ZENBAKIA METODOA
+	public static int irakurriZenb() throws NumberFormatException {		
+		String sar= sc.nextLine();
+		int zenb= Integer.parseInt(sar);
+		return zenb;
 	}
 	
 	

@@ -95,9 +95,10 @@ public class ListaJokalaria {
 		
 		String izena = Teklatua.getNireTeklatua().irakurriString();
 		System.out.println("Sartu zure adina");
-		int adina = Teklatua.getNireTeklatua().irakurriString();
+		int adina = Teklatua.getNireTeklatua().irakurriZenb();
+		int adinaCPU = random 
 		this.getNireListaJokalariak().getZerrenda()[0] = new JokalariArrunta(izena,adina);
-		this.getNireListaJokalariak().getZerrenda()[0] = new JokalariCPU();
+		this.getNireListaJokalariak().getZerrenda()[0] = new JokalariCPU(adina);
 		
 		
 	}

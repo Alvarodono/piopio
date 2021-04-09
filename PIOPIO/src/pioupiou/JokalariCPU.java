@@ -19,6 +19,16 @@ public class JokalariCPU extends Jokalaria{
 	
 	
 	//KONBINAZIO ONENA METODOA
+	public ListaKarta konbinazioOnena() {
+		int i = 0;
+		Karta k = null;
+		Karta kt = this.getEskukoKartak().getKarta(i);
+		String ktm = kt.getMota();
+		
+		
+			
+				
+	}
 	
 	
 }

@@ -13,7 +13,12 @@ public class ListaArrautza {
 	}
 	
 	//BESTE METODOAK
-	public void arrautzaKendu() {
-		
+	public void arrautzaKendu(int pPos) {
+		this.lista.remove(pPos);
+	}
+	
+	//ARRAUTZA GEHITU
+	public void arrautzaGehitu(Arrautza pArrautza) {
+		this.lista.add(pArrautza);
 	}
 }
