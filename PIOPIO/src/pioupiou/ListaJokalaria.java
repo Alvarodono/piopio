@@ -52,15 +52,16 @@ public class ListaJokalaria {
 	
 	//PARTIDA HASIERATU METODOA
 	public void partidaHasieratu() {
-		File txt= new File ("res/Hasiera.txt");
+		File txt= new File ("E:/Alvaro/pmoo/PIOU PIOU/res/Hasiera.txt");
 		irakurri(txt);
+		System.out.println("Sakatu 1 jolasteko edo 2 arauak irakurtzeko");
 		int sarrera = Teklatua.getNireTeklatua().irakurriOsoa();
 		try{
 			if(sarrera==1){
 				partidaJolastu();
 			}
 			else if(sarrera==2){
-				File txt1= new File ("res/ARAUAK.txt");
+				File txt1= new File ("E:/Alvaro/pmoo/PIOU PIOU/res/Arauak.txt");
 				irakurri(txt1);
 				System.out.println("Sakatu enter menura itzultzeko");
 				Teklatua.getNireTeklatua().irakurriEnter();
@@ -102,6 +103,12 @@ public class ListaJokalaria {
 		int adinaCPU = rd.nextInt(100)+1;
 		ListaJokalaria.getNireListaJokalariak().getZerrenda()[0] = new JokalariArrunta(izena,adina);
 		ListaJokalaria.getNireListaJokalariak().getZerrenda()[0] = new JokalariCPU(adinaCPU);
+		if (adinaCPU > adina) {
+			System.out.println("Makina lehenengo jokalaria da");
+		}
+		else {
+			System.out.println("Lehenengo jokalaria zara");
+		}
 		
 		
 	}
