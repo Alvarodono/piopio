@@ -13,9 +13,15 @@ public class JokalariCPU extends Jokalaria{
 	
 	//BESTE METODOAK
 	//JOKALDIA EGIN METODOA
+	public void jokaldiaEgin() {
+		
+	}
 	
 	
 	//TURNOA BUKATU METODOA
+	public void turnoaBukatu() {
+		
+	}
 	
 	
 	//KONBINAZIO ONENA METODOA
@@ -30,4 +36,4 @@ public class JokalariCPU extends Jokalaria{
 	}
 	
 	
-}//BORRAR ESTO
+}

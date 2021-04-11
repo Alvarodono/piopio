@@ -27,7 +27,7 @@ public class Konbinazioak {
 	}
 	
 	//KONBINAZIOA DA METODOA
-	public boolean konbinazioaDa() {
+	public boolean konbinazioOnena() {
 		boolean erantzuna = false;
 		if ()
 		return erantzuna;

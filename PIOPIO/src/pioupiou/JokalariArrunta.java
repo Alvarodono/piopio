@@ -20,6 +20,29 @@ public class JokalariArrunta extends Jokalaria {
 		this.getEskukoKartak().imprimatuKartak();
 	}
 	
-	//
+	//JOKALDIA EGIN METODOA
+	public void jokaldiaEgin() {
+		
+	}
+	
+	//AUKERATU ESKUKO KARTA METODOA
+	public void aukeratuEskukoKarta() {
+		
+	}
+	
+	//AUKERATU MAHAIKO KARTAK METODOA
+	public void aukeratuMahaikoKartak() {
+		
+	}
+	
+	//MAHAIKO AUKERAKETA EGIN
+	public void mahaikoAukeraketaEgin() {
+		
+	}
+	
+	//TURNOA BUKATU METODOA
+	public void turnoaBukatu() {
+		
+	}
 
 }

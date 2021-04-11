@@ -35,6 +35,12 @@ public class Jokalaria {
 		return this.konbi;
 	}
 	
+	//DENA ERRESETEATU METODOA 
+	public void denaErreseteatu() {
+		this.getEskukoKartak().erreseteatu();
+		this.getEskukoArrautzak().erreseteatu();
+	}
+	
 	
 	
 	

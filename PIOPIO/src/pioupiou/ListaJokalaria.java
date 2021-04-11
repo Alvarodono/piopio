@@ -76,6 +76,16 @@ public class ListaJokalaria {
 		}
 	}
 	
+	//TXANDA JOLASTU METODOA
+	public void txandaJolastu() {
+		
+	}
+	
+	//TXANDA BUKATU METODOA
+	public void txandaBukatu() {
+		
+	}
+	
 	//KARTAK BANATU METODOA
 	public void kartakBanatu() {
 		int kont = 4;
@@ -108,16 +118,13 @@ public class ListaJokalaria {
 		}
 		else {
 			System.out.println("Lehenengo jokalaria zara");
-		}
-		
-		
+		}		
 	}
 	
-	public void txandaJolastu() {
-		
-	}
 	
-	public void txandaBukatu() {
+	
+	//JOKOA BERRABIARAZI METODOA
+	public void jokoaBerrabiarazi() {
 		
 	}
 	

@@ -21,4 +21,9 @@ public class ListaArrautza {
 	public void arrautzaGehitu(Arrautza pArrautza) {
 		this.lista.add(pArrautza);
 	}
+	
+	//ERRESETEATU METODOA
+		public void erreseteatu(){
+			this.lista.clear();
+		}
 }
