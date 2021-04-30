@@ -53,7 +53,8 @@ public class HasierakoBaraja {
 			int random = r.nextInt(lista.getKartaKop());
 			k=lista.getKarta(random);
 		}
-		return k;
+		lista.kenduKartaKartaz(k);
+		return k;		
 	}
 	
 	//RESET METODOA

@@ -60,7 +60,7 @@ public class Konbinazioak {
 	}
 	
 	//KONBINAZIOA DA METODOA
-	public boolean konbinazioaDa(Karta k1, Karta k2, Karta k3, Karta k4, ListaArrautza lista1, ListaArrautza lista2, )  {
+	public boolean konbinazioaDa(Karta k1, Karta k2, Karta k3, Karta k4, ListaArrautza lista1, ListaArrautza lista2 )  {
 		boolean erantzuna = false;
 		if (k1.getMota() == "Oilo" && k2.getMota() == "Oilo" && lista1.kopurua() >= 1) {
 			erantzuna = true;

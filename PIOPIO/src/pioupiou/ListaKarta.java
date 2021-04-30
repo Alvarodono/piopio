@@ -22,10 +22,16 @@ public class ListaKarta {
 	}
 	
 	//KENDU KARTA METODOA
-	public void kenduKarta(int pPos) {
+	public void kenduKartaZenbakiz(int pPos) {
 		lista.remove(pPos);
 		kartaKop--;
-	}	
+	}
+	
+	//KENDU KARTA KARTAZ METODOA
+	public void kenduKartaKartaz(Karta pKarta) {
+		lista.remove(pKarta);
+		kartaKop--;
+	}
 	
 	
 	//GEHITU KARTA METODOA

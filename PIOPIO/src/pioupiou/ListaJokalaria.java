@@ -136,8 +136,7 @@ public class ListaJokalaria {
 		this.getZerrenda()[0].denaErreseteatu();
 		this.getZerrenda()[1].denaErreseteatu();
 		HasierakoBaraja.getNireHasierakoBaraja().reset();
-		ListaKartaBaztertzeko.getnNireListaKartaBaztertzeko().erreseteatu();
-		ListaKartaHartzeko.getListaKartaHartzeko().erreseteatu();		
+		ListaKartaBaztertzeko.getnNireListaKartaBaztertzeko().erreseteatu();		
 	}
 	
 	
