@@ -91,9 +91,9 @@ public class ListaJokalaria {
 		while (kont > 0) {
 			Karta k = null;
 			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
-			this.getZerrenda()[0].getEskukoKartak().gehituKarta(k);
+			this.getZerrenda()[0].getNireEskukoKartak().gehituKarta(k);
 			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
-			this.getZerrenda()[1].getEskukoKartak().gehituKarta(k);
+			this.getZerrenda()[1].getNireEskukoKartak().gehituKarta(k);
 			kont--;
 		}
 	}		
@@ -110,8 +110,7 @@ public class ListaJokalaria {
 		int adina = Teklatua.irakurriZenb();
 		Random rd = new Random();
 		int adinaCPU = rd.nextInt(100)+1;
-		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(izena,adina);
-		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU);
+		
 		if (adinaCPU > adina) {
 			System.out.println("Makina lehenengo jokalaria da");
 			m = 0;
@@ -122,9 +121,11 @@ public class ListaJokalaria {
 			j = 0;
 			m = 1;
 		}
+		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(izena,adina);
+		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU);
 		while (!bukaera()) {
 			rondaJolastu();
-			rondaBukatu();
+			
 		}
 	}
 	

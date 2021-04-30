@@ -29,6 +29,11 @@ public class ListaKartaBaztertzeko {
 		lista.erreseteatu();
 	}
 	
+	//GEHITU KARTA METODOA
+	public void gehituKarta(Karta pKarta) {
+		this.lista.gehituKarta(pKarta);
+	}
+	
 	
 	
 	

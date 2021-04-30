@@ -42,13 +42,7 @@ public class HasierakoBaraja {
 			k++;
 		}
 		lista.setKartaKop(47);
-	}
-	
-	//RESET METODOA
-	public void reset() {
-		lista.erreseteatu();
-		barajaBete();
-	}
+	}	
 	
 	
 	//BANAKETA METODOA (KARTA BAT BANATZEKO)
@@ -62,7 +56,13 @@ public class HasierakoBaraja {
 		return k;
 	}
 	
-	//KARTAK BANATU METODOA
+	//RESET METODOA
+	public void reset() {
+		lista.erreseteatu();
+		barajaBete();
+	}
+	
+	/*KARTAK BANATU METODOA
 	public void kartakBanatu() {
 		int kont = 4;
 		while (kont > 0) {
@@ -73,5 +73,5 @@ public class HasierakoBaraja {
 			this.getZerrenda()[1].getEskukoKartak().gehituKarta(k);
 			kont--;
 		}
-	}
+	}*/
 }

@@ -63,6 +63,12 @@ public class ListaKarta {
 			k.imprimatuKarta();
 		}
 	}
+	
+	//KONBINAZIORIK DAGO METODOA
+	public boolean konbinaziorikDago() {
+		
+		return erantzuna;
+	}
 }
 
 

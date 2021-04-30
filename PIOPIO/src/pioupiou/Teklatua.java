@@ -78,7 +78,6 @@ public class Teklatua {
 	
 	//IRAKURRI ENTER METODOA
 	public void irakurriEnter() {
-		System.out.println("Sakatu enter jarraitzeko");
 		this.sc.nextLine();
 	}
 }

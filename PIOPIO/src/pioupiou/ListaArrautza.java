@@ -38,7 +38,7 @@ public class ListaArrautza {
 	
 	//KOPURUA METODOA
 	public int kopurua() {
-		return this.kopurua;//
+		return this.kopurua;
 	}
 	
 	

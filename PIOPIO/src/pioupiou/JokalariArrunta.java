@@ -18,17 +18,26 @@ public class JokalariArrunta extends Jokalaria {
 	public void imprimatuEskua() {
 		System.out.println("Zure eskuko kartak:");
 		System.out.println(" ");
-		this.getEskukoKartak().imprimatuKartak();
+		this.getNireEskukoKartak().imprimatuKartak();
 	}
 	
 	//JOKALDIA EGIN METODOA
 	public void jokaldiaEgin() {
+		int sarrera;
 		imprimatuEskua();
+		if(!this.getKonbinazioak().konbinaziorikDago(getNireEskukoKartak())) {
+			System.out.println("Baztertu karta bat");
+			sarrera = Teklatua.getNireTeklatua().irakurriOsoa();
+			ListaKartaBaztertzeko.getnNireListaKartaBaztertzeko().gehituKarta(this.getNireEskukoKartak().getKarta(sarrera));
+			this.getNireEskukoKartak().gehituKarta();
+			
+				
+			
+		}
 		
 		
 		
-		aukeratuEskukoKarta();
-		if ()
+		
 		 
 		
 	}
@@ -47,7 +56,7 @@ public class JokalariArrunta extends Jokalaria {
 		}
 		if(denaOndo) {	
 			try {
-				k=getEskukoKartak().getKarta(aukera-1);
+				k=getNireEskukoKartak().getKarta(aukera-1);
 			}catch(IndexOutOfBoundsException e){
 				System.out.println("Aukeratutako posizioan ez dago kartarik");
 				this.aukeratuEskukoKarta();
