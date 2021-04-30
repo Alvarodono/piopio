@@ -91,9 +91,9 @@ public class ListaJokalaria {
 		int kont = 4;
 		while (kont > 0) {
 			Karta k = null;
-			k = HasierakoBaraja.getNireBaraja().banaketa();
+			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
 			this.getZerrenda()[0].getEskukoKartak().gehituKarta(k);
-			k = HasierakoBaraja.getNireBaraja().banaketa();
+			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
 			this.getZerrenda()[1].getEskukoKartak().gehituKarta(k);
 			kont--;
 		}
@@ -103,22 +103,30 @@ public class ListaJokalaria {
 	
 	//PARTIDA JOLASTU METODOA	
 	public void partidaJolastu() {
-		System.out.println("Sartu zure izena");
-		
+		int j,m;
+		System.out.println("Sartu zure izena");		
 		String izena = Teklatua.getNireTeklatua().irakurriString();
 		System.out.println("Sartu zure adina");
 		Teklatua.getNireTeklatua();
 		int adina = Teklatua.irakurriZenb();
 		Random rd = new Random();
 		int adinaCPU = rd.nextInt(100)+1;
-		ListaJokalaria.getNireListaJokalariak().getZerrenda()[0] = new JokalariArrunta(izena,adina);
-		ListaJokalaria.getNireListaJokalariak().getZerrenda()[0] = new JokalariCPU(adinaCPU);
+		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(izena,adina);
+		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU);
 		if (adinaCPU > adina) {
 			System.out.println("Makina lehenengo jokalaria da");
+			m = 0;
+			j = 1;
 		}
 		else {
 			System.out.println("Lehenengo jokalaria zara");
-		}		
+			j = 0;
+			m = 1;
+		}
+		while (!bukaera()) {
+			rondaJolastu();
+			rondaBukatu();
+		}
 	}
 	
 	
@@ -126,6 +134,19 @@ public class ListaJokalaria {
 	//JOKOA BERRABIARAZI METODOA
 	public void jokoaBerrabiarazi() {
 		
+	}
+	
+	//BUKAERA METODOA
+	public boolean bukaera() {
+		return this.getZerrenda()[0].getPuntuak() == 3 || this.getZerrenda()[1].getPuntuak() == 3;
+	}
+	
+	//RONDA JOLASTU METODOA
+	public void rondaJolastu() {
+		this.jokoaBerrabiarazi();
+		this.kartakBanatu();
+		this.getZerrenda()[0].jokaldiaEgin();
+		this.getZerrenda()[1].jokaldiaEgin(;)
 	}
 	
 	

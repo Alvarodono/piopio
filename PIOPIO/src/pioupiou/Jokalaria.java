@@ -7,6 +7,7 @@ public class Jokalaria {
 	private ListaKarta eskukoKartak;
 	private ListaArrautza eskukoArrautzak;
 	private Konbinazioak konbi;
+	private int puntuak;
 	
 	//ERAIKITZAILEA
 	public Jokalaria(int pAdina) {
@@ -35,11 +36,28 @@ public class Jokalaria {
 		return this.konbi;
 	}
 	
+	//PUNTUAK ERRESETEATU METODOA
+	public void puntuakErreseteatu() {
+		puntuak = 0;
+	}
+	
 	//DENA ERRESETEATU METODOA 
 	public void denaErreseteatu() {
 		this.getEskukoKartak().erreseteatu();
 		this.getEskukoArrautzak().erreseteatu();
 	}
+	
+	//GET PUNTUAK METODOA
+	public int getPuntuak() {
+		return this.puntuak;
+	}
+	
+	//JOKALDIA EGIN METODOA
+	public void jokaldiaEgin() {
+		
+	}
+	
+	
 	
 	
 	

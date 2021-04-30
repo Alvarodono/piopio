@@ -15,7 +15,7 @@ public class HasierakoBaraja {
 	
 	//BESTE METODOAK
 	//GET NIRE HASIERAKO BARAJA METODOA
-	public static HasierakoBaraja getNireBaraja() {
+	public static HasierakoBaraja getNireHasierakoBaraja() {
 		if (nireBaraja == null) {
 			nireBaraja = new HasierakoBaraja();
 		}
@@ -53,12 +53,25 @@ public class HasierakoBaraja {
 	
 	//BANAKETA METODOA (KARTA BAT BANATZEKO)
 	public Karta banaketa() {
-		Karta k=null;
-		Random r=new Random();
+		Karta k = null;
+		Random r = new Random();
 		if(lista.getKartaKop()>1){
 			int random = r.nextInt(lista.getKartaKop());
 			k=lista.getKarta(random);
 		}
 		return k;
+	}
+	
+	//KARTAK BANATU METODOA
+	public void kartakBanatu() {
+		int kont = 4;
+		while (kont > 0) {
+			Karta k = null;
+			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
+			this.getZerrenda()[0].getEskukoKartak().gehituKarta(k);
+			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
+			this.getZerrenda()[1].getEskukoKartak().gehituKarta(k);
+			kont--;
+		}
 	}
 }
