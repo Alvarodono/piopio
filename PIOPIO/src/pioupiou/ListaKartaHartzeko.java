@@ -26,4 +26,10 @@ public class ListaKartaHartzeko {
 	
 	//MULTZOA SORTU METODOA
 	
+	//ERRESETEATU METODOA
+	public void erreseteatu() {
+		lista.erreseteatu();
+	}
+		
+	
 }

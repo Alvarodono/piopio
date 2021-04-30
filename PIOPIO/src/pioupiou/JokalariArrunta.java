@@ -4,6 +4,7 @@ public class JokalariArrunta extends Jokalaria {
 	
 	//ATRIBUTUAK
 	private String izena;
+	private int aukera=0;
 	
 	
 	//ERAIKITZAILEA
@@ -22,11 +23,37 @@ public class JokalariArrunta extends Jokalaria {
 	
 	//JOKALDIA EGIN METODOA
 	public void jokaldiaEgin() {
+		imprimatuEskua();
+		
+		
+		
+		aukeratuEskukoKarta();
+		if ()
+		 
 		
 	}
 	
 	//AUKERATU ESKUKO KARTA METODOA
-	public void aukeratuEskukoKarta() {
+	public Karta aukeratuEskukoKarta() {
+		Karta k=null;
+		Boolean denaOndo=false;
+		String sarrera=Teklatua.getNireTeklatua().irakurriString();
+		try {
+			aukera=Integer.parseInt(sarrera);
+			denaOndo=true;
+		}catch(NumberFormatException e) {
+			System.out.println("Sarrera zenbaki bat izan behar da.");
+			this.aukeratuEskukoKarta();
+		}
+		if(denaOndo) {	
+			try {
+				k=getEskukoKartak().getKarta(aukera-1);
+			}catch(IndexOutOfBoundsException e){
+				System.out.println("Aukeratutako posizioan ez dago kartarik");
+				this.aukeratuEskukoKarta();
+			}
+		}
+		return k;
 		
 	}
 	

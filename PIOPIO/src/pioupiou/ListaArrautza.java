@@ -6,6 +6,8 @@ public class ListaArrautza {
 	
 	//ATRIBUTUAK
 	private ArrayList<Arrautza> lista;
+	private int kopurua; 
+	
 	
 	//ERAIKITZAILEA
 	public ListaArrautza() {
@@ -13,6 +15,7 @@ public class ListaArrautza {
 	}
 	
 	//BESTE METODOAK
+	//ARRAUTZA KENDU METODOA
 	public void arrautzaKendu(int pPos) {
 		this.lista.remove(pPos);
 	}
@@ -23,7 +26,20 @@ public class ListaArrautza {
 	}
 	
 	//ERRESETEATU METODOA
-		public void erreseteatu(){
-			this.lista.clear();
-		}
+	public void erreseteatu(){
+		this.lista.clear();
+	}	
+	
+	//GET LISTA ARRAUTZA METODOA
+	public ArrayList<Arrautza> getListaArrautza() {
+		return lista;
+	}
+	
+	
+	//KOPURUA METODOA
+	public int kopurua() {
+		return this.kopurua;//
+	}
+	
+	
 }

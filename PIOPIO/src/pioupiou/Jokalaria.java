@@ -45,6 +45,7 @@ public class Jokalaria {
 	public void denaErreseteatu() {
 		this.getEskukoKartak().erreseteatu();
 		this.getEskukoArrautzak().erreseteatu();
+		puntuakErreseteatu();
 	}
 	
 	//GET PUNTUAK METODOA
@@ -52,10 +53,7 @@ public class Jokalaria {
 		return this.puntuak;
 	}
 	
-	//JOKALDIA EGIN METODOA
-	public void jokaldiaEgin() {
-		
-	}
+	
 	
 	
 	

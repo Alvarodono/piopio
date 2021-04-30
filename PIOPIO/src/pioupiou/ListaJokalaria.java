@@ -66,8 +66,7 @@ public class ListaJokalaria {
 				System.out.println("Sakatu enter menura itzultzeko");
 				Teklatua.getNireTeklatua().irakurriEnter();
 				partidaHasieratu();
-				}
-			
+				}			
 			else
 				throw new HasieranAukeraOkerraSalbuespena();
 		}catch(HasieranAukeraOkerraSalbuespena e){
@@ -133,8 +132,14 @@ public class ListaJokalaria {
 	
 	//JOKOA BERRABIARAZI METODOA
 	public void jokoaBerrabiarazi() {
-		
+		this.getZerrenda()[0].denaErreseteatu();
+		this.getZerrenda()[1].denaErreseteatu();
+		HasierakoBaraja.getNireHasierakoBaraja().reset();
+		ListaKartaBaztertzeko.getnNireListaKartaBaztertzeko().erreseteatu();
+		ListaKartaHartzeko.getListaKartaHartzeko().erreseteatu();		
 	}
+	
+	
 	
 	//BUKAERA METODOA
 	public boolean bukaera() {
@@ -146,7 +151,7 @@ public class ListaJokalaria {
 		this.jokoaBerrabiarazi();
 		this.kartakBanatu();
 		this.getZerrenda()[0].jokaldiaEgin();
-		this.getZerrenda()[1].jokaldiaEgin(;)
+		this.getZerrenda()[1].jokaldiaEgin();
 	}
 	
 	

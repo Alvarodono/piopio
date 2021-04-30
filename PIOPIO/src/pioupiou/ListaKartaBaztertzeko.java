@@ -24,6 +24,11 @@ public class ListaKartaBaztertzeko {
 	 	return nireListaKartaBaztertzeko;		
 	}
 	
+	//ERRESETEATU METODOA
+	public void erreseteatu() {
+		lista.erreseteatu();
+	}
+	
 	
 	
 	
