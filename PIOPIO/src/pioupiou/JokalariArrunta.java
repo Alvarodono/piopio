@@ -25,7 +25,7 @@ public class JokalariArrunta extends Jokalaria {
 	public void jokaldiaEgin() {
 		int sarrera;
 		imprimatuEskua();
-		if(!this.getKonbinazioak().konbinaziorikDago(getNireEskukoKartak())) {
+		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getNireEskukoKartak())) {
 			System.out.println("Baztertu karta bat");
 			sarrera = Teklatua.getNireTeklatua().irakurriOsoa();
 			ListaKartaBaztertzeko.getnNireListaKartaBaztertzeko().gehituKarta(this.getNireEskukoKartak().getKarta(sarrera));

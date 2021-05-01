@@ -40,7 +40,7 @@ public class Konbinazioak {
 	}
 	
 	//KONBINAZIORIK DAGO METODOA
-	public boolean konbinaziorikDago(ListaKarta pLista) {
+	public boolean konbinazioNormalikAhalDago(ListaKarta pLista) {
 		Karta k1;
 		Karta k2;
 		Karta k3;
@@ -60,29 +60,100 @@ public class Konbinazioak {
 	}
 	
 	//KONBINAZIOA DA METODOA
-	public boolean konbinazioaDa(Karta k1, Karta k2, Karta k3, Karta k4, ListaArrautza lista1, ListaArrautza lista2 )  {
+	public boolean konbinazioNormalikAhalDago(Karta k1, Karta k2, Karta k3, Karta k4, ListaArrautza lista)  {
+		int kont = 0;
 		boolean erantzuna = false;
-		if (k1.getMota() == "Oilo" && k2.getMota() == "Oilo" && lista1.kopurua() >= 1) {
-			erantzuna = true;
-			this.konbinazioMota = 1;
+		if (k1.getMota() == "Oilo" ) {
+			kont++;
 		}
-		else if (k1.getMota() == "Oilo" && k2.getMota() == "Oilar" && k3.getMota() == "Habia" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().kopurua() >=1) {
-			erantzuna = true;
-			this.konbinazioMota = 2;
+		if (k2.getMota() == "Oilo") {
+			kont++;
 		}
-		else if (k1.getMota() == "Azeria" && lista2.kopurua() >= 1) {
-			erantzuna = true;
-			this.konbinazioMota = 3;
+		if (k3.getMota() == "Oilo") {
+			kont++;
 		}
-		else if (k1.getMota() == "Oilar" && k2.getMota() == "Oilar" && CPU.azeriaErabiliDu()) {
-			erantzuna = true;
-			this.konbinazioMota = 4;
+		if (k4.getMota() == "Oilo") {
+			kont++;			
 		}
-		return erantzuna;
-		
+		if (kont >= 2 && lista.arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Oilo" && k2.getMota() == "Oilar" && k3.getMota() == "Habia" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Oilo" && k2.getMota() == "Habia" && k3.getMota() == "Oilar" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Oilar" && k2.getMota() == "Oilo" && k3.getMota() == "Habia" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Oilar" && k2.getMota() == "Habia" && k3.getMota() == "Oilo" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Habia" && k2.getMota() == "Oilo" && k3.getMota() == "Oilar" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Habia" && k2.getMota() == "Oilar" && k3.getMota() == "Oilo" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Oilo" && k2.getMota() == "Oilar" && k4.getMota() == "Habia" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Oilo" && k2.getMota() == "Habia" && k4.getMota() == "Oilar" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Oilar" && k2.getMota() == "Oilo" && k4.getMota() == "Habia" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Oilar" && k2.getMota() == "Habia" && k4.getMota() == "Oilo" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Habia" && k2.getMota() == "Oilo" && k4.getMota() == "Oilar" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Habia" && k2.getMota() == "Oilar" && k4.getMota() == "Oilo" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Oilo" && k3.getMota() == "Oilar" && k4.getMota() == "Habia" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Oilo" && k3.getMota() == "Habia" && k4.getMota() == "Oilar" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Oilar" && k3.getMota() == "Habia" && k4.getMota() == "Oilo" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Oilar" && k3.getMota() == "Oilo" && k4.getMota() == "Habia" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Habia" && k3.getMota() == "Oilo" && k4.getMota() == "Oilar" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k1.getMota() == "Habia" && k3.getMota() == "Oilar" && k4.getMota() == "Oilo" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k2.getMota() == "Oilo" && k3.getMota() == "Oilar" && k4.getMota() == "Habia" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k2.getMota() == "Oilo" && k3.getMota() == "Habia" && k4.getMota() == "Oilar" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k2.getMota() == "Oilar" && k3.getMota() == "Oilo" && k4.getMota() == "Habia" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k2.getMota() == "Oilar" && k3.getMota() == "Habia" && k4.getMota() == "Oilo" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k2.getMota() == "Habia" && k3.getMota() == "Oilo" && k4.getMota() == "Oilar" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}
+		else if(k2.getMota() == "Habia" && k3.getMota() == "Oilar" && k4.getMota() == "Oilo" && ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().arrautzarikDago()) {
+			erantzuna = true;
+		}			
+	return erantzuna;		
 	}
 	
 	
-	//
+
 
 }

@@ -16,5 +16,10 @@ public class Arrautza {
 		if (!txita) {
 			txita = true;
 		}		
-	}	
+	}
+	
+	//GET TXITA METODOA
+	public boolean getTxitxa() {
+		return this.txita;
+	}
 }
