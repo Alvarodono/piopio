@@ -16,7 +16,7 @@ public class ListaKartaBaztertzeko {
 	
 	//BESTE METODOAK
 	//GET LISTA KARTA BAZTERTZEKO METODOA
-	public static ListaKartaBaztertzeko getnNireListaKartaBaztertzeko() 
+	public static ListaKartaBaztertzeko getNireListaKartaBaztertzeko() 
 	{
 	 	if(nireListaKartaBaztertzeko == null) {
 	 		nireListaKartaBaztertzeko = new ListaKartaBaztertzeko();

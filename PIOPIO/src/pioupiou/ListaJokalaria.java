@@ -91,9 +91,9 @@ public class ListaJokalaria {
 		while (kont > 0) {
 			Karta k = null;
 			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
-			this.getZerrenda()[0].getNireEskukoKartak().gehituKarta(k);
+			this.getZerrenda()[0].getEskukoKartak().gehituKarta(k);
 			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
-			this.getZerrenda()[1].getNireEskukoKartak().gehituKarta(k);
+			this.getZerrenda()[1].getEskukoKartak().gehituKarta(k);
 			kont--;
 		}
 	}		
@@ -136,14 +136,18 @@ public class ListaJokalaria {
 		this.getZerrenda()[0].denaErreseteatu();
 		this.getZerrenda()[1].denaErreseteatu();
 		HasierakoBaraja.getNireHasierakoBaraja().reset();
-		ListaKartaBaztertzeko.getnNireListaKartaBaztertzeko().erreseteatu();		
+		ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().erreseteatu();		
 	}
 	
 	
 	
 	//BUKAERA METODOA
 	public boolean bukaera() {
-		return this.getZerrenda()[0].getPuntuak() == 3 || this.getZerrenda()[1].getPuntuak() == 3;
+		boolean erantzuna = false;
+		if (this.getZerrenda()[0].getPuntuak() == 3 || this.getZerrenda()[1].getPuntuak() == 3){
+			erantzuna = true;
+		}
+		return erantzuna;
 	}
 	
 	//RONDA JOLASTU METODOA

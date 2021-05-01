@@ -3,7 +3,8 @@ package pioupiou;
 public class JokalariCPU extends Jokalaria{
 	//ATRIBUTUAK
 	private String izena;
-	
+	private ListaKarta eskukoKartak;
+	private ListaArrautza eskukoArrautzak;
 	
 	//ERAIKITZAILEA 
 	public JokalariCPU(int pAdina) {
@@ -11,7 +12,7 @@ public class JokalariCPU extends Jokalaria{
 		this.izena = "CPU"; 
 	}
 	
-	//BESTE METODOAK
+	//BESTE METODOAK	
 	//JOKALDIA EGIN METODOA
 	public void jokaldiaEgin() {
 		
@@ -28,12 +29,11 @@ public class JokalariCPU extends Jokalaria{
 	public ListaKarta konbinazioOnena() {
 		int i = 0;
 		Karta k = null;
-		Karta kt = this.getNireEskukoKartak().getKarta(i);
-		String ktm = kt.getMota();	
-		
-			
-				
+		Karta kt = this.getEskukoKartak().getKarta(i);
+		String ktm = kt.getMota();					
 	}
+	
+	
 	
 	
 }

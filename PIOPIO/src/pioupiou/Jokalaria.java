@@ -1,38 +1,35 @@
 package pioupiou;
 
-public class Jokalaria {
+public abstract class Jokalaria {
 	
 	//ATRIBUTUAK
 	private int adina;
-	private static ListaKarta nireEskukoKartak = null;
-	private static ListaArrautza nireEskukoArrautzak;
 	private Konbinazioak konbi;
 	private int puntuak;
 	private boolean azeriaErabiliDu = false;
+	private ListaKarta eskukoKartak;
+	private ListaArrautza eskukoArrautzak;
 	
 	//ERAIKITZAILEA
 	protected Jokalaria(int pAdina) {
+		this.eskukoKartak = new ListaKarta();
+		this.eskukoArrautzak = new ListaArrautza();
 		this.adina = pAdina;
 		this.konbi = Konbinazioak.getNireKonbinazioak();
 		this.puntuak = 0;
 	}	
 	
 	//BESTE METODOAK
-	//GET NIRE ESKUKO KARTAK METODOA
-	public static synchronized ListaKarta getNireEskukoKartak() {
-		if (nireEskukoKartak == null) {
-			nireEskukoKartak = new ListaKarta();
-		}
-		return nireEskukoKartak;
+	//GET  ESKUKO KARTAK METODOA
+	protected ListaKarta getEskukoKartak(){
+		return this.eskukoKartak;
 	}
+		
+	//GET ESKUKO ARRAUTZAK METODOA
+	protected ListaArrautza getEskukoArrautzak(){
+		return this.eskukoArrautzak;
+	}	
 	
-	//GET NIRE ESKUKO ARRAUTZAK METODOA
-	public static synchronized ListaArrautza getNireEskukoArrautzak() {
-		if (nireEskukoArrautzak == null) {
-			nireEskukoArrautzak = new ListaArrautza();
-		}
-		return nireEskukoArrautzak;
-	}
 	
 	//GET ADINA METODOA
 	public int getAdina() {
@@ -51,8 +48,8 @@ public class Jokalaria {
 	
 	//DENA ERRESETEATU METODOA 
 	public void denaErreseteatu() {
-		this.getNireEskukoKartak().erreseteatu();
-		this.getNireEskukoArrautzak().erreseteatu();
+		this.getEskukoKartak().erreseteatu();
+		this.getEskukoArrautzak().erreseteatu();
 		puntuakErreseteatu();
 	}
 	
@@ -65,6 +62,10 @@ public class Jokalaria {
 	public boolean azeriaErabiliDu() {
 		return this.azeriaErabiliDu;
 	}
+	
+	
+	//JOKALDIA EGIN METODOA
+	public abstract void jokaldiaEgin();
 	
 	
 	

@@ -72,7 +72,7 @@ public class ListaKarta {
 	
 	//KONBINAZIORIK DAGO METODOA
 	public boolean konbinaziorikDago() {
-		
+		boolean erantzuna = true;
 		return erantzuna;
 	}
 }
