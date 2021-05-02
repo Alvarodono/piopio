@@ -29,6 +29,6 @@ public class Karta {
 	
 	//IMPRIMATU KARTA METODOA
 	public void imprimatuKarta() {
-		System.out.println("Mota: "+this.mota);
+		System.out.println(this.mota);
 	}
 }

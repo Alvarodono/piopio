@@ -1,5 +1,6 @@
 package pioupiou;
 
+import java.util.Random;
 
 public class ListaArrautzaHartzeko {
 	
@@ -21,6 +22,19 @@ public class ListaArrautzaHartzeko {
 		}
 		return nireLista;
 	}
+	
+	//BANAKETA METODOA
+	public Arrautza banaketa() {
+		Arrautza a = null;
+		Random r = new Random();
+		if(lista.getKopurua()>1){
+			int random = r.nextInt(lista.getKopurua());
+			a = lista.getArrautza(random);
+		}
+		lista.kenduArrautzaArrautzaz(a);
+		
+		return a;		
+	} 
 		
 		
 	//GET KOPURUA METODOA

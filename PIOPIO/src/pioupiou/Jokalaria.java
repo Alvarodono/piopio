@@ -9,6 +9,7 @@ public abstract class Jokalaria {
 	private boolean azeriaErabiliDu = false;
 	private ListaKarta eskukoKartak;
 	private ListaArrautza eskukoArrautzak;
+	protected int arrautzaKop;
 	
 	//ERAIKITZAILEA
 	protected Jokalaria(int pAdina) {

@@ -19,8 +19,12 @@ public class Konbinazioak {
 	}
 	
 	//BESTE METODOAK
+	//GET KONBINAZIO MOTA METODOA
+	public int getKonbinazioMota() {
+		return this.konbinazioMota;
+	}
 	
-	//
+	
 	//GET NIRE KONBINAZIOAK METODOA
 	public static Konbinazioak getNireKonbinazioak() {
 		if (nireKonbinazioak==null){	
@@ -82,79 +86,104 @@ public class Konbinazioak {
 		}
 		if (kont >= 2 && arrautza) {
 			erantzuna = true;
+			konbinazioMota = 1;
 		}
 		else if(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().kopurua > 0) {
 			if (k1.getMota() == "Oilo" && k2.getMota() == "Oilar" && k3.getMota() == "Habia") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Oilo" && k2.getMota() == "Habia" && k3.getMota() == "Oilar") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Oilar" && k2.getMota() == "Oilo" && k3.getMota() == "Habia") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Oilar" && k2.getMota() == "Habia" && k3.getMota() == "Oilo") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Habia" && k2.getMota() == "Oilo" && k3.getMota() == "Oilar") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Habia" && k2.getMota() == "Oilar" && k3.getMota() == "Oilo") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Oilo" && k2.getMota() == "Oilar" && k4.getMota() == "Habia") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Oilo" && k2.getMota() == "Habia" && k4.getMota() == "Oilar") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Oilar" && k2.getMota() == "Oilo" && k4.getMota() == "Habia") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Oilar" && k2.getMota() == "Habia" && k4.getMota() == "Oilo") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Habia" && k2.getMota() == "Oilo" && k4.getMota() == "Oilar") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Habia" && k2.getMota() == "Oilar" && k4.getMota() == "Oilo") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Oilo" && k3.getMota() == "Oilar" && k4.getMota() == "Habia") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Oilo" && k3.getMota() == "Habia" && k4.getMota() == "Oilar") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Oilar" && k3.getMota() == "Habia" && k4.getMota() == "Oilo") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Oilar" && k3.getMota() == "Oilo" && k4.getMota() == "Habia") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Habia" && k3.getMota() == "Oilo" && k4.getMota() == "Oilar") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k1.getMota() == "Habia" && k3.getMota() == "Oilar" && k4.getMota() == "Oilo") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k2.getMota() == "Oilo" && k3.getMota() == "Oilar" && k4.getMota() == "Habia") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k2.getMota() == "Oilo" && k3.getMota() == "Habia" && k4.getMota() == "Oilar") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k2.getMota() == "Oilar" && k3.getMota() == "Oilo" && k4.getMota() == "Habia") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k2.getMota() == "Oilar" && k3.getMota() == "Habia" && k4.getMota() == "Oilo") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k2.getMota() == "Habia" && k3.getMota() == "Oilo" && k4.getMota() == "Oilar") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}
 			else if(k2.getMota() == "Habia" && k3.getMota() == "Oilar" && k4.getMota() == "Oilo") {
 				erantzuna = true;
+				konbinazioMota = 2;
 			}	
 		}		
 	return erantzuna;		

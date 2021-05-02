@@ -127,8 +127,7 @@ public class ListaJokalaria {
 			rondaJolastu();
 			
 		//}
-	}
-	
+	}	
 	
 	
 	//JOKOA BERRABIARAZI METODOA
@@ -138,8 +137,7 @@ public class ListaJokalaria {
 		HasierakoBaraja.getNireHasierakoBaraja().reset();
 		ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().reset();
 		ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().erreseteatu();		
-	}
-	
+	}	
 	
 	
 	//BUKAERA METODOA

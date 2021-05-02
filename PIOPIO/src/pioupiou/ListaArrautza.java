@@ -23,6 +23,12 @@ public class ListaArrautza {
 		return this.lista.iterator();
 	}	
 	
+	//GET ARRAUTZA METODOA
+		public Arrautza getArrautza(int pPos) {
+			Arrautza a = lista.get(pPos);
+			return a;
+		}
+	
 	
 	//ARRAUTZA KENDU METODOA
 	public void arrautzaKendu(int pPos) {
@@ -33,6 +39,7 @@ public class ListaArrautza {
 	//GEHITU ARRAUTZA METODOA
 	public void gehituArrautza(Arrautza pArrautza) {
 		this.lista.add(pArrautza);
+		arrautzaKop++;
 	}
 	
 	//ERRESETEATU METODOA
@@ -46,6 +53,11 @@ public class ListaArrautza {
 		return lista;
 	}
 	
+	//KENDU KARTA KARTAZ METODOA
+		public void kenduArrautzaArrautzaz(Arrautza pArrautza) {
+			lista.remove(pArrautza);
+			arrautzaKop--;
+		}	
 	
 	//GET KOPURUA METODOA
 	public int getKopurua() {

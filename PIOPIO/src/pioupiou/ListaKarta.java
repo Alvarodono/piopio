@@ -62,11 +62,14 @@ public class ListaKarta {
 	
 	//IMPRIMATU KARTAK METODOA
 	public void imprimatuKartak() {
+		int i = 1;
 		Iterator<Karta> itr = this.getIteradorea();
 		Karta k = null;
 		while (itr.hasNext()) {
 			k = itr.next();
+			System.out.print(i+".");
 			k.imprimatuKarta();
+			i++;
 		}
 	}
 	
