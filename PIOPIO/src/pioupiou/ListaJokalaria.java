@@ -123,10 +123,10 @@ public class ListaJokalaria {
 		}
 		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(izena,adina);
 		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU);
-		while (!bukaera()) {
+		/*while (!bukaera()) {*/
 			rondaJolastu();
 			
-		}
+		//}
 	}
 	
 	
@@ -136,6 +136,7 @@ public class ListaJokalaria {
 		this.getZerrenda()[0].denaErreseteatu();
 		this.getZerrenda()[1].denaErreseteatu();
 		HasierakoBaraja.getNireHasierakoBaraja().reset();
+		ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().reset();
 		ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().erreseteatu();		
 	}
 	
@@ -155,6 +156,9 @@ public class ListaJokalaria {
 		this.jokoaBerrabiarazi();
 		this.kartakBanatu();
 		this.getZerrenda()[0].jokaldiaEgin();
+		if (this.getZerrenda()[0].getAzeriaErabiliDu()) {
+			this.getZerrenda()[1].jokaldiExtraEgin();
+		}
 		this.getZerrenda()[1].jokaldiaEgin();
 	}
 	

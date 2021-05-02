@@ -18,6 +18,11 @@ public class JokalariCPU extends Jokalaria{
 		
 	}
 	
+	//JOKALDI EXTRA EGIN METODOA
+		public void jokaldiExtraEgin() {
+			
+		}
+	
 	
 	//TURNOA BUKATU METODOA
 	public void turnoaBukatu() {

@@ -15,7 +15,7 @@ public class HasierakoBaraja {
 	
 	//BESTE METODOAK
 	//GET NIRE HASIERAKO BARAJA METODOA
-	public static HasierakoBaraja getNireHasierakoBaraja() {
+	public static synchronized HasierakoBaraja getNireHasierakoBaraja() {
 		if (nireBaraja == null) {
 			nireBaraja = new HasierakoBaraja();
 		}
@@ -51,7 +51,7 @@ public class HasierakoBaraja {
 		Random r = new Random();
 		if(lista.getKartaKop()>1){
 			int random = r.nextInt(lista.getKartaKop());
-			k=lista.getKarta(random);
+			k = lista.getKarta(random);
 		}
 		lista.kenduKartaKartaz(k);
 		return k;		

@@ -27,22 +27,28 @@ public class JokalariArrunta extends Jokalaria {
 	public void jokaldiaEgin() {
 		int sarrera;
 		imprimatuEskua();
-		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak())) {
+		Arrautza pArrautza = new Arrautza(false);
+		this.getEskukoArrautzak().gehituArrautza(pArrautza);
+		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.getEskukoArrautzak().arrautzarikDago())) {
 			System.out.println("Aukeratu karta bat baztertzeko eta berri bat hartu multzotik");			
-			sarrera = Teklatua.getNireTeklatua().irakurriOsoa();
-			while (sarrera != 1 || sarrera != 2 || sarrera != 3 || sarrera != 4) {
-				System.out.println("Aukeratu berriz baztertuko duzun karta");
-				sarrera = Teklatua.getNireTeklatua().irakurriOsoa();
-			}
-			ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(sarrera));
-			this.getEskukoKartak().kenduKartaZenbakiz(sarrera);						
-			this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-			turnoaBukatu();
+			//sarrera = Teklatua.getNireTeklatua().irakurriOsoa();
+			//while (sarrera != 1 && sarrera != 2 && sarrera != 3 && sarrera != 4) {
+				//System.out.println("Aukeratu berriz baztertuko duzun karta");
+				//sarrera = Teklatua.getNireTeklatua().irakurriOsoa();
+			//}
+			//ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(sarrera));
+			//this.getEskukoKartak().kenduKartaZenbakiz(sarrera);						
+			//this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+			//turnoaBukatu();
 		}
 		else {
+			
 			System.out.println("Egin jokaldia");
-		}
-		 
+		}		
+	}
+	
+	//JOKALDI EXTRA EGIN METODOA
+	public void jokaldiExtraEgin() {
 		
 	}
 	

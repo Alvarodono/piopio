@@ -56,7 +56,7 @@ public class ListaKarta {
 	}
 	
 	//GET ITERADOREA METODOA
-	private Iterator<Karta> getIteradorea(){
+	public Iterator<Karta> getIteradorea(){
 		return this.lista.iterator();
 	}
 	

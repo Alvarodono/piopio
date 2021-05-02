@@ -30,6 +30,10 @@ public abstract class Jokalaria {
 		return this.eskukoArrautzak;
 	}	
 	
+	//GET ARRAUTZA KOP METODOA
+	protected int getArrautzKop() {
+		return this.getEskukoArrautzak().getKopurua();
+	}	
 	
 	//GET ADINA METODOA
 	public int getAdina() {
@@ -50,7 +54,7 @@ public abstract class Jokalaria {
 	public void denaErreseteatu() {
 		this.getEskukoKartak().erreseteatu();
 		this.getEskukoArrautzak().erreseteatu();
-		puntuakErreseteatu();
+		this.puntuakErreseteatu();
 	}
 	
 	//GET PUNTUAK METODOA
@@ -59,13 +63,16 @@ public abstract class Jokalaria {
 	}
 	
 	//GET AZERIA ERABILI DU METODOA
-	public boolean azeriaErabiliDu() {
+	public boolean getAzeriaErabiliDu() {
 		return this.azeriaErabiliDu;
 	}
 	
 	
 	//JOKALDIA EGIN METODOA
 	public abstract void jokaldiaEgin();
+	
+	//JOKALDI EXTRA EGIN METODOA
+	public abstract void jokaldiExtraEgin();
 	
 	
 	
