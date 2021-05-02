@@ -5,11 +5,12 @@ public abstract class Jokalaria {
 	//ATRIBUTUAK
 	private int adina;
 	private Konbinazioak konbi;
-	private int puntuak;
+	protected int puntuak;//txita kopurua!!
 	private boolean azeriaErabiliDu = false;
 	private ListaKarta eskukoKartak;
 	private ListaArrautza eskukoArrautzak;
 	protected int arrautzaKop;
+	
 	
 	//ERAIKITZAILEA
 	protected Jokalaria(int pAdina) {

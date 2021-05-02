@@ -10,6 +10,7 @@ public class JokalariArrunta extends Jokalaria {
 	
 	
 	
+	
 	//ERAIKITZAILEA
 	public JokalariArrunta(String pIzena, int pAdina){
 		super(pAdina);
@@ -22,18 +23,21 @@ public class JokalariArrunta extends Jokalaria {
 		System.out.println("Zure eskuko kartak:");
 		System.out.println(" ");
 		this.getEskukoKartak().imprimatuKartak();
-		System.out.println("----------------");
+		System.out.println("-----------------------");
 		System.out.print("Arrautzak:");
-		System.out.println(this.arrautzaKop);
-		System.out.println(" ");
+		System.out.print(this.arrautzaKop);
+		System.out.print("    Txitak:");
+		System.out.println(this.puntuak);
+		System.out.println("-----------------------");
+		
 	}
 	
 	//JOKALDIA EGIN METODOA
 	public void jokaldiaEgin() {
 		int s1, s2, s3, s4;
-		imprimatuEskua();
-		Arrautza pArrautza = new Arrautza(false);
-		this.getEskukoArrautzak().gehituArrautza(pArrautza);
+		//this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
+		//this.arrautzaKop++;
+		imprimatuEskua();		
 		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.getEskukoArrautzak().arrautzarikDago())) {
 			System.out.println("Aukeratu karta bat baztertzeko eta berri bat hartu multzotik");			
 			s1 = Teklatua.getNireTeklatua().irakurriOsoa();
@@ -48,7 +52,8 @@ public class JokalariArrunta extends Jokalaria {
 			imprimatuEskua();
 		}
 		else {			
-			System.out.println("Aukeratu jokatu nahi dituzun kartak:");//OILO OILAR HABIA
+			System.out.println("Aukeratu jokatu nahi dituzun kartak:");//oilo oilar habia
+			
 			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {
 				s2 = Teklatua.getNireTeklatua().irakurriOsoa();
 				s3 = Teklatua.getNireTeklatua().irakurriOsoa();
@@ -64,22 +69,22 @@ public class JokalariArrunta extends Jokalaria {
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
 				this.arrautzaKop++;
-				imprimatuEskua();
-				
-				
+				imprimatuEskua();				
 			}
-			else if((Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1)) {//2 OILO
+			else if((Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1)) {//bi oilo
 				s2 = Teklatua.getNireTeklatua().irakurriOsoa();
 				s3 = Teklatua.getNireTeklatua().irakurriOsoa();
-				
-				
-			}
-			
-			
-			
-			
-			
-		
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(s2-1));
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(s3-1));
+				this.getEskukoKartak().kenduKartaZenbakiz(s3-1);
+				this.getEskukoKartak().kenduKartaZenbakiz(s2-1);
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoArrautzak().getArrautza(0).bueltaEman();
+				this.puntuak++;
+				this.arrautzaKop--;
+				imprimatuEskua();				
+			}		
 		}		
 	}
 	
