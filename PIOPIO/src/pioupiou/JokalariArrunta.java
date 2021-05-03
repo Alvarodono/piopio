@@ -31,9 +31,8 @@ public class JokalariArrunta extends Jokalaria {
 		System.out.print("    Txitak:");
 		System.out.print(this.puntuak);
 		System.out.println(" ║");
-		System.out.println("╚═════════════════════════╝");
-		
-		
+		System.out.println("╚═════════════════════════╝");	
+		System.out.println(" ");
 	}
 	
 	//GET TXANDA ZENBAKIA METODOA
@@ -56,8 +55,7 @@ public class JokalariArrunta extends Jokalaria {
 			}
 			ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(s1-1));
 			this.getEskukoKartak().kenduKartaZenbakiz(s1-1);						
-			this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-			
+			this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());			
 			imprimatuEskua();
 		}
 		else {
@@ -104,9 +102,12 @@ public class JokalariArrunta extends Jokalaria {
 				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
 				this.arrautzaKop++;
 				ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().getListaArrautza().gehituArrautza(ar);		
+				this.azeriaErabiliDu = true;
 				imprimatuEskua();
+				
 			}
 		}
+		System.out.println("IA-ren txanda");
 	}
 			/*System.out.println("Aukeratu jokatu nahi dituzun kartak:");
 			
@@ -146,7 +147,12 @@ public class JokalariArrunta extends Jokalaria {
 	
 	//JOKALDI EXTRA EGIN METODOA
 	public void jokaldiExtraEgin() {
-		
+		int s1,s2;
+		if (this.getEskukoKartak().defendatuDezaket()) {
+			System.out.println("Aukeratu kartak defendatzeko");
+			s1 = Teklatua.getNireTeklatua().irakurriOsoa();
+			s2 = Teklatua.getNireTeklatua().irakurriOsoa();
+		}
 	}
 	
 	//AUKERATU ESKUKO KARTA METODOA

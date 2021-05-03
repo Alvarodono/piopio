@@ -74,6 +74,7 @@ public class JokalariCPU extends Jokalaria{
 				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
 				this.arrautzaKop++;
 				ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().getListaArrautza().gehituArrautza(ar);		
+				this.azeriaErabiliDu = true;
 				imprimatuEskua();
 			}
 		}
@@ -96,14 +97,19 @@ public class JokalariCPU extends Jokalaria{
 	public void imprimatuEskua() {
 		System.out.println("Makinaren kartak:");
 		System.out.println(" ");
+		System.out.println("╔═════════════════════════╗");
 		this.getEskukoKartak().imprimatuKartak();
-		System.out.println("-----------------------");
-		System.out.print("Arrautzak:");
+		System.out.println("╠═════════════════════════╣");
+		System.out.print("║");
+		System.out.print(" Arrautzak:");
 		System.out.print(this.arrautzaKop);
 		System.out.print("    Txitak:");
-		System.out.println(this.puntuak);
-		System.out.println("-----------------------");
+		System.out.print(this.puntuak);
+		System.out.println(" ║");
+		System.out.println("╚═════════════════════════╝");
+		System.out.println(" ");
 	}
+
 	
 	
 	//KONBINAZIO ONENA METODOA
@@ -143,7 +149,7 @@ public class JokalariCPU extends Jokalaria{
 			habiaKont++;
 		}
 		if (k4.getMota() == "Habia") {
-			azeriKont++;
+			habiaKont++;
 		}
 		if (k1.getMota() == "Oilo") {
 			oiloKont++;

@@ -75,10 +75,27 @@ public class ListaKarta {
 		}
 	}
 	
+	//DEFENDATU DEZAKET
+	public boolean defendatuDezaket() {
+		int kont = 0;
+		Karta k;
+		boolean erantzuna = false;
+		Iterator<Karta> itr = this.getIteradorea();
+		while (itr.hasNext() && kont <2) {
+			k = itr.next();
+			if (k.getMota() == "Oilo") {
+				kont++;
+			}
+		}
+		if (kont > 1) {
+			erantzuna = true;
+		}
+		return erantzuna;
+	}
+	
 	//BAZTERTU KARTA MOTA JAKINDA METODOA
 	public Karta baztertuKartaMotaJakinda(String sarrera) {
-		Karta k = null, b;
-		
+		Karta k = null, b;		
 		Iterator<Karta> itr = this.getIteradorea();
 		while (itr.hasNext() && k == null) {
 			b = itr.next();

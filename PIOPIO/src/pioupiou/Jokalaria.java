@@ -6,7 +6,7 @@ public abstract class Jokalaria {
 	private int adina;
 	private Konbinazioak konbi;
 	protected int puntuak;//txita kopurua!!
-	private boolean azeriaErabiliDu = false;
+	protected boolean azeriaErabiliDu = false;
 	private ListaKarta eskukoKartak;
 	private ListaArrautza eskukoArrautzak;
 	protected int arrautzaKop;
@@ -77,6 +77,7 @@ public abstract class Jokalaria {
 	//JOKALDI EXTRA EGIN METODOA
 	public abstract void jokaldiExtraEgin();
 	
+	
 	//AURKARIAREN TXANDA METODOA
 		public int aurkariarenTxanda() {
 			if (this.txandaZenbakia == 1) {
@@ -85,6 +86,8 @@ public abstract class Jokalaria {
 				return 1;
 			}
 		}
+		
+	
 	
 	
 	
