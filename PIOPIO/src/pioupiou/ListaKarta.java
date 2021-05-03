@@ -67,10 +67,28 @@ public class ListaKarta {
 		Karta k = null;
 		while (itr.hasNext()) {
 			k = itr.next();
+			
+			System.out.print("║  ");
 			System.out.print(i+".");
 			k.imprimatuKarta();
 			i++;
 		}
+	}
+	
+	//BAZTERTU KARTA MOTA JAKINDA METODOA
+	public Karta baztertuKartaMotaJakinda(String sarrera) {
+		Karta k = null, b;
+		
+		Iterator<Karta> itr = this.getIteradorea();
+		while (itr.hasNext() && k == null) {
+			b = itr.next();
+			if (b.getMota() == sarrera) {
+				k = b;
+			}
+		}
+		return k;
+		
+		
 	}
 	
 	//KONBINAZIORIK DAGO METODOA

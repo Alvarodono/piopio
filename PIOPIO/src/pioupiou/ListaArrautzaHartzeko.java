@@ -31,8 +31,7 @@ public class ListaArrautzaHartzeko {
 			int random = r.nextInt(lista.getKopurua());
 			a = lista.getArrautza(random);
 		}
-		lista.kenduArrautzaArrautzaz(a);
-		
+		lista.kenduArrautzaArrautzaz(a);		
 		return a;		
 	} 
 		

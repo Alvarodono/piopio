@@ -8,29 +8,78 @@ public class JokalariCPU extends Jokalaria{
 	private String izena;
 	private ListaKarta eskukoKartak;
 	private ListaArrautza eskukoArrautzak;
+	private int txandaZenbakia;
 	
 	//ERAIKITZAILEA 
-	public JokalariCPU(int pAdina) {
+	public JokalariCPU(int pAdina, int pM) {
 		super(pAdina);
 		this.izena = "CPU"; 
+		this.txandaZenbakia = pM;
 	}
 	
 	//BESTE METODOAK	
 	//JOKALDIA EGIN METODOA
 	public void jokaldiaEgin() {
-		Karta k1 = null,k2 = null,k3 = null,k4 = null;
+		//this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
+		//this.arrautzaKop++;
+		Karta k1 = null,k2 = null,k3 = null,k4 = null, baztertzekoKarta;
 		imprimatuEskua();
-		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.getEskukoArrautzak().arrautzarikDago())) {
-			Iterator<Karta> itr = this.eskukoKartak.getIteradorea();
+		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.getEskukoArrautzak().arrautzarikDago(), txandaZenbakia)) {
+			Iterator<Karta> itr = this.getEskukoKartak().getIteradorea();
 			while (itr.hasNext()) {
 				k1 = itr.next();
 				k2 = itr.next();
 				k3 = itr.next();
 				k4 = itr.next();			
 			}
-			zerBaztertuCPU(k1, k2, k3, k4);
+			baztertzekoKarta = zerBaztertuCPU(k1, k2, k3, k4);
+			ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(baztertzekoKarta);
+			this.getEskukoKartak().kenduKartaKartaz(baztertzekoKarta);					
+			this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+			imprimatuEskua();
+		}else {
+			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1) {
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoArrautzak().getArrautza(0).bueltaEman();
+				this.puntuak++;
+				this.arrautzaKop--;
+				imprimatuEskua();
+				
+			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilar"));
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Habia"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilar"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Habia"));
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
+				this.arrautzaKop++;
+				imprimatuEskua();
+				
+			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 3){
+				Arrautza ar = new Arrautza (false);
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				ListaJokalaria.getNireListaJokalariak().getZerrenda()[this.aurkariarenTxanda()].getEskukoArrautzak().arrautzaKendu(0);
+				ListaJokalaria.getNireListaJokalariak().getZerrenda()[this.aurkariarenTxanda()].arrautzaKop--;
+				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
+				this.arrautzaKop++;
+				ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().getListaArrautza().gehituArrautza(ar);		
+				imprimatuEskua();
+			}
 		}
 	}
+	
+	
 	
 	//JOKALDI EXTRA EGIN METODOA
 		public void jokaldiExtraEgin() {
@@ -149,22 +198,12 @@ public class JokalariCPU extends Jokalaria{
 				k = k3;
 			}
 		}else if (oiloKont == 2 && oilarKont == 2) { //5.egoera
-			if (this.arrautzaKop > 0) { //descartar gallo  
-				if (k1.getMota() == "Oilar") {
-					k = k1;
-				}else if (k2.getMota() == "Oilar") {
-					k = k2;
-				}else if (k3.getMota() == "Oilar") {
-					k = k3;
-				}
-			}else { //descartar gallina
-				if (k1.getMota() == "Oilo") {
-					k = k1;
-				}else if (k2.getMota() == "Oilo") {
-					k = k2;
-				}else if (k3.getMota() == "Oilo") {
-					k = k3;
-				}
+			if (k1.getMota() == "Oilar") {//descartar gallo
+				k = k1;
+			}else if (k2.getMota() == "Oilar") {
+				k = k2;
+			}else if (k3.getMota() == "Oilar") {
+				k = k3;
 			}
 		}else if (azeriKont == 1 && habiaKont == 1 && oiloKont == 2) { //6.egoera
 			if (this.arrautzaKop > 0) {//descartar nido
@@ -207,11 +246,31 @@ public class JokalariCPU extends Jokalaria{
 				}
 				
 			}
+		}else if (oiloKont == 2 && azeriKont == 1 && oilarKont == 1) { //8.egoera
+			if (k1.getMota() == "Oilo") {
+				k = k1;		
+			}else if (k2.getMota() == "Oilo") {
+				k = k2;
+			}else if (k3.getMota() == "Oilo") {
+				k = k3;
+			}
+		}else if (oilarKont == 2 && azeriKont == 1 && oiloKont == 1) { //9.egoera
+			if (this.arrautzaKop > 0) { //descartar zorro
+				if (k1.getMota() == "Azeria") {
+					k = k1;		
+				}else if (k2.getMota() == "Azeria") {
+					k = k2;
+				}else if (k3.getMota() == "Azeria") {
+					k = k3;
+				}else if (k4.getMota() == "Azeria") {
+					k = k4;
+				}
+			}
 		}
-		
 		return k;
 	}
-	
-	
-	
 }
+	
+	
+	
+

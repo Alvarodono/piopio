@@ -10,7 +10,7 @@ public class Konbinazioak {
 	private boolean aurkitua = false;
 	private ListaKarta konbiKartak;
 	private ArrayList<Karta> lista;
-	private int konbinazioMota;
+	private int konbinazioMota = 0;
 	
 	
 	//ERAIKITZAILEA
@@ -61,24 +61,36 @@ public class Konbinazioak {
 	}*/
 	
 	//KONBINAZIOA DA METODOA
-	public boolean konbinazioNormalikAhalDago(ListaKarta listaKarta, boolean arrautza)  {
-		Karta k1 = null,k2 = null,k3 = null,k4 = null;		
+	public boolean konbinazioNormalikAhalDago(ListaKarta listaKarta, boolean arrautza, int jokalaria)  {
+		int i;
+		boolean erantzuna = false;
+		if (jokalaria == 1) {
+			i = 0;
+		}else {
+			i = 1;
+		}
+		Karta k1 = new Karta("k1") ,k2 = new Karta("k2") ,k3 = new Karta("k3")  ,k4 = new Karta("k4");		
 		Iterator<Karta> itr = listaKarta.getIteradorea(); 
-		while(itr.hasNext()) {			
+		if(itr.hasNext()) {			
 			k1 = itr.next();
-			k2 = itr.next();
-			k3 = itr.next();
-			k4 = itr.next();
+			if(itr.hasNext()) {
+				k2 = itr.next();
+				if (itr.hasNext()) {
+					k3 = itr.next();
+					if (itr.hasNext()) {
+						k4 = itr.next();
+					}
+				}				
+			}
 		}		
 		int kont = 0;
-		boolean erantzuna = false;
-		if (k1.getMota() == "Oilo" ) {
+		if (k1.getMota() == "Oilo" ) {//eclosionar un huevo
 			kont++;
 		}
 		if (k2.getMota() == "Oilo") {
 			kont++;
 		}
-		if (k3.getMota() == "Oilo") {
+		if (k3 != null && k3.getMota() == "Oilo") {
 			kont++;
 		}
 		if (k4.getMota() == "Oilo") {
@@ -87,105 +99,13 @@ public class Konbinazioak {
 		if (kont >= 2 && arrautza) {
 			erantzuna = true;
 			konbinazioMota = 1;
+		}else if ((ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().kopurua > 0) && ((k1.getMota() == "Oilo" && k2.getMota() == "Oilar" && k3.getMota() == "Habia") || (k1.getMota() == "Oilo" && k2.getMota() == "Habia" && k3.getMota() == "Oilar") || (k1.getMota() == "Oilar" && k2.getMota() == "Oilo" && k3.getMota() == "Habia") || (k1.getMota() == "Oilar" && k2.getMota() == "Habia" && k3.getMota() == "Oilo") || (k1.getMota() == "Habia" && k2.getMota() == "Oilo" && k3.getMota() == "Oilar") || (k1.getMota() == "Habia" && k2.getMota() == "Oilar" && k3.getMota() == "Oilo") || (k1.getMota() == "Oilo" && k2.getMota() == "Oilar" && k4.getMota() == "Habia") || (k1.getMota() == "Oilo" && k2.getMota() == "Habia" && k4.getMota() == "Oilar") || (k1.getMota() == "Oilar" && k2.getMota() == "Oilo" && k4.getMota() == "Habia") || (k1.getMota() == "Oilar" && k2.getMota() == "Habia" && k4.getMota() == "Oilo") || (k1.getMota() == "Habia" && k2.getMota() == "Oilo" && k4.getMota() == "Oilar") || (k1.getMota() == "Habia" && k2.getMota() == "Oilar" && k4.getMota() == "Oilo") || (k1.getMota() == "Oilo" && k3.getMota() == "Oilar" && k4.getMota() == "Habia") || (k1.getMota() == "Oilo" && k3.getMota() == "Habia" && k4.getMota() == "Oilar") || (k1.getMota() == "Oilar" && k3.getMota() == "Habia" && k4.getMota() == "Oilo") || (k1.getMota() == "Oilar" && k3.getMota() == "Oilo" && k4.getMota() == "Habia") || (k1.getMota() == "Habia" && k3.getMota() == "Oilo" && k4.getMota() == "Oilar") || (k1.getMota() == "Habia" && k3.getMota() == "Oilar" && k4.getMota() == "Oilo") || (k2.getMota() == "Oilo" && k3.getMota() == "Oilar" && k4.getMota() == "Habia") || (k2.getMota() == "Oilo" && k3.getMota() == "Habia" && k4.getMota() == "Oilar") || (k2.getMota() == "Oilar" && k3.getMota() == "Oilo" && k4.getMota() == "Habia") || (k2.getMota() == "Oilar" && k3.getMota() == "Habia" && k4.getMota() == "Oilo") || (k2.getMota() == "Habia" && k3.getMota() == "Oilo" && k4.getMota() == "Oilar") || (k2.getMota() == "Habia" && k3.getMota() == "Oilar" && k4.getMota() == "Oilo"))) {//coger huevo de la pila 2
+				erantzuna = true;
+				konbinazioMota = 2;	
+		}else if((ListaJokalaria.getNireListaJokalariak().getZerrenda()[i].getEskukoArrautzak().arrautzarikDago()) && (k1.getMota() == "Azeria" || k2.getMota() == "Azeria" || k3.getMota() == "Azeria" || k4.getMota() == "Azeria" ))	{
+				erantzuna = true;
+				konbinazioMota = 3;
 		}
-		else if(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().kopurua > 0) {
-			if (k1.getMota() == "Oilo" && k2.getMota() == "Oilar" && k3.getMota() == "Habia") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Oilo" && k2.getMota() == "Habia" && k3.getMota() == "Oilar") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Oilar" && k2.getMota() == "Oilo" && k3.getMota() == "Habia") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Oilar" && k2.getMota() == "Habia" && k3.getMota() == "Oilo") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Habia" && k2.getMota() == "Oilo" && k3.getMota() == "Oilar") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Habia" && k2.getMota() == "Oilar" && k3.getMota() == "Oilo") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Oilo" && k2.getMota() == "Oilar" && k4.getMota() == "Habia") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Oilo" && k2.getMota() == "Habia" && k4.getMota() == "Oilar") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Oilar" && k2.getMota() == "Oilo" && k4.getMota() == "Habia") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Oilar" && k2.getMota() == "Habia" && k4.getMota() == "Oilo") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Habia" && k2.getMota() == "Oilo" && k4.getMota() == "Oilar") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Habia" && k2.getMota() == "Oilar" && k4.getMota() == "Oilo") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Oilo" && k3.getMota() == "Oilar" && k4.getMota() == "Habia") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Oilo" && k3.getMota() == "Habia" && k4.getMota() == "Oilar") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Oilar" && k3.getMota() == "Habia" && k4.getMota() == "Oilo") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Oilar" && k3.getMota() == "Oilo" && k4.getMota() == "Habia") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Habia" && k3.getMota() == "Oilo" && k4.getMota() == "Oilar") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k1.getMota() == "Habia" && k3.getMota() == "Oilar" && k4.getMota() == "Oilo") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k2.getMota() == "Oilo" && k3.getMota() == "Oilar" && k4.getMota() == "Habia") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k2.getMota() == "Oilo" && k3.getMota() == "Habia" && k4.getMota() == "Oilar") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k2.getMota() == "Oilar" && k3.getMota() == "Oilo" && k4.getMota() == "Habia") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k2.getMota() == "Oilar" && k3.getMota() == "Habia" && k4.getMota() == "Oilo") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k2.getMota() == "Habia" && k3.getMota() == "Oilo" && k4.getMota() == "Oilar") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}
-			else if(k2.getMota() == "Habia" && k3.getMota() == "Oilar" && k4.getMota() == "Oilo") {
-				erantzuna = true;
-				konbinazioMota = 2;
-			}	
-		}		
-	return erantzuna;		
-	}
+		return erantzuna;
+	}					
 }

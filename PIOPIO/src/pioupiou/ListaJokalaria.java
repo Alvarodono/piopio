@@ -115,14 +115,15 @@ public class ListaJokalaria {
 			System.out.println("Makina lehenengo jokalaria da");
 			m = 0;
 			j = 1;
+			
 		}
 		else {
 			System.out.println("Lehenengo jokalaria zara");
 			j = 0;
 			m = 1;
 		}
-		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(izena,adina);
-		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU);
+		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(izena,adina,j);
+		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU,m);
 		/*while (!bukaera()) {*/
 			rondaJolastu();
 			
@@ -153,11 +154,13 @@ public class ListaJokalaria {
 	public void rondaJolastu() {
 		this.jokoaBerrabiarazi();
 		this.kartakBanatu();
+		//this.getZerrenda()[1].getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
+		//this.getZerrenda()[1].arrautzaKop++;
 		this.getZerrenda()[0].jokaldiaEgin();
-		if (this.getZerrenda()[0].getAzeriaErabiliDu()) {
-			this.getZerrenda()[1].jokaldiExtraEgin();
-		}
-		this.getZerrenda()[1].jokaldiaEgin();
+		//if (this.getZerrenda()[0].getAzeriaErabiliDu()) {
+		//	this.getZerrenda()[1].jokaldiExtraEgin();
+		//}
+		//this.getZerrenda()[1].jokaldiaEgin();
 	}
 	
 	

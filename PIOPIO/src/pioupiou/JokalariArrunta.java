@@ -7,14 +7,14 @@ public class JokalariArrunta extends Jokalaria {
 	private int aukera=0;
 	private ListaKarta eskukoKartak;
 	private ListaArrautza eskukoArrautzak;
-	
-	
+	private int txandaZenbakia;
 	
 	
 	//ERAIKITZAILEA
-	public JokalariArrunta(String pIzena, int pAdina){
+	public JokalariArrunta(String pIzena, int pAdina, int pJ){
 		super(pAdina);
 		this.izena = pIzena;
+		this.txandaZenbakia = pJ;
 	}
 	
 	//BESTE METODOAK		
@@ -22,23 +22,32 @@ public class JokalariArrunta extends Jokalaria {
 	public void imprimatuEskua() {
 		System.out.println("Zure eskuko kartak:");
 		System.out.println(" ");
+		System.out.println("╔═════════════════════════╗");
 		this.getEskukoKartak().imprimatuKartak();
-		System.out.println("-----------------------");
-		System.out.print("Arrautzak:");
+		System.out.println("╠═════════════════════════╣");
+		System.out.print("║");
+		System.out.print(" Arrautzak:");
 		System.out.print(this.arrautzaKop);
 		System.out.print("    Txitak:");
-		System.out.println(this.puntuak);
-		System.out.println("-----------------------");
+		System.out.print(this.puntuak);
+		System.out.println(" ║");
+		System.out.println("╚═════════════════════════╝");
 		
+		
+	}
+	
+	//GET TXANDA ZENBAKIA METODOA
+	public int getTxandaZenbakia() {
+		return this.txandaZenbakia;
 	}
 	
 	//JOKALDIA EGIN METODOA
 	public void jokaldiaEgin() {
-		int s1, s2, s3, s4;
+		int s1, s2;
 		//this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
 		//this.arrautzaKop++;
 		imprimatuEskua();		
-		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.getEskukoArrautzak().arrautzarikDago())) {
+		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.getEskukoArrautzak().arrautzarikDago(), txandaZenbakia)) {
 			System.out.println("Aukeratu karta bat baztertzeko eta berri bat hartu multzotik");			
 			s1 = Teklatua.getNireTeklatua().irakurriOsoa();
 			while (s1 != 1 && s1 != 2 && s1 != 3 && s1 != 4) {
@@ -48,13 +57,60 @@ public class JokalariArrunta extends Jokalaria {
 			ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(s1-1));
 			this.getEskukoKartak().kenduKartaZenbakiz(s1-1);						
 			this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-			this.
+			
 			imprimatuEskua();
 		}
-		else {			
-			System.out.println("Aukeratu jokatu nahi dituzun kartak:");//oilo oilar habia
+		else {
+			System.out.println("Aukeratu kartak jokaldia egiteko:");
+			ListaKarta lista = new ListaKarta();
+			boolean arrautza = this.getEskukoArrautzak().arrautzarikDago();
+			s2 = Teklatua.getNireTeklatua().irakurriOsoa();
+			lista.gehituKarta(this.getEskukoKartak().getKarta(s2-1));
+			while (!this.getKonbinazioak().konbinazioNormalikAhalDago(lista, arrautza, txandaZenbakia)) {
+				s2 = Teklatua.getNireTeklatua().irakurriOsoa();
+				lista.gehituKarta(this.getEskukoKartak().getKarta(s2-1));				
+			}
+			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1) {//oilo oilo
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoArrautzak().getArrautza(0).bueltaEman();
+				this.puntuak++;
+				this.arrautzaKop--;
+				imprimatuEskua();
+			} else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {//oilo oilar habia
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilar"));
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Habia"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilar"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Habia"));
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
+				this.arrautzaKop++;
+				imprimatuEskua();				
+			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 3) {//zorro
+				Arrautza ar = new Arrautza (false);
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				ListaJokalaria.getNireListaJokalariak().getZerrenda()[this.aurkariarenTxanda()].getEskukoArrautzak().arrautzaKendu(0);
+				ListaJokalaria.getNireListaJokalariak().getZerrenda()[this.aurkariarenTxanda()].arrautzaKop--;
+				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
+				this.arrautzaKop++;
+				ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().getListaArrautza().gehituArrautza(ar);		
+				imprimatuEskua();
+			}
+		}
+	}
+			/*System.out.println("Aukeratu jokatu nahi dituzun kartak:");
 			
-			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {
+			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {//oilo oilar habia
 				s2 = Teklatua.getNireTeklatua().irakurriOsoa();
 				s3 = Teklatua.getNireTeklatua().irakurriOsoa();
 				s4 = Teklatua.getNireTeklatua().irakurriOsoa();
@@ -85,8 +141,8 @@ public class JokalariArrunta extends Jokalaria {
 				this.arrautzaKop--;
 				imprimatuEskua();				
 			}		
-		}		
-	}
+		}*/		
+	//}
 	
 	//JOKALDI EXTRA EGIN METODOA
 	public void jokaldiExtraEgin() {

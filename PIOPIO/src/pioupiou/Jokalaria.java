@@ -10,6 +10,7 @@ public abstract class Jokalaria {
 	private ListaKarta eskukoKartak;
 	private ListaArrautza eskukoArrautzak;
 	protected int arrautzaKop;
+	protected int txandaZenbakia;
 	
 	
 	//ERAIKITZAILEA
@@ -76,6 +77,14 @@ public abstract class Jokalaria {
 	//JOKALDI EXTRA EGIN METODOA
 	public abstract void jokaldiExtraEgin();
 	
+	//AURKARIAREN TXANDA METODOA
+		public int aurkariarenTxanda() {
+			if (this.txandaZenbakia == 1) {
+				return 0;
+			}else {
+				return 1;
+			}
+		}
 	
 	
 	
