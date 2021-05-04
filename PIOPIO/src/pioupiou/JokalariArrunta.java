@@ -42,7 +42,10 @@ public class JokalariArrunta extends Jokalaria {
 	
 	//JOKALDIA EGIN METODOA
 	public void jokaldiaEgin() {
+		System.out.println(" ");
+		System.out.println("Zure txanda da.");
 		int s1, s2;
+		this.azeriaErabiliDu = false;
 		//this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
 		//this.arrautzaKop++;
 		imprimatuEskua();		
@@ -93,21 +96,16 @@ public class JokalariArrunta extends Jokalaria {
 				this.arrautzaKop++;
 				imprimatuEskua();				
 			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 3) {//zorro
-				Arrautza ar = new Arrautza (false);
+				
 				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				ListaJokalaria.getNireListaJokalariak().getZerrenda()[this.aurkariarenTxanda()].getEskukoArrautzak().arrautzaKendu(0);
-				ListaJokalaria.getNireListaJokalariak().getZerrenda()[this.aurkariarenTxanda()].arrautzaKop--;
-				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
-				this.arrautzaKop++;
-				ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().getListaArrautza().gehituArrautza(ar);		
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());						
 				this.azeriaErabiliDu = true;
 				imprimatuEskua();
 				
 			}
 		}
-		System.out.println("IA-ren txanda da.");
+		
 	}
 			/*System.out.println("Aukeratu jokatu nahi dituzun kartak:");
 			

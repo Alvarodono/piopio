@@ -126,10 +126,11 @@ public class ListaJokalaria {
 		}
 		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(izena,adina,j);
 		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU,m);
-		/*while (!bukaera()) {*/
-			rondaJolastu();
-			
-		//}
+		this.jokoaBerrabiarazi();
+		this.kartakBanatu();
+		while (!bukaera()) {
+			rondaJolastu();		
+		}
 	}	
 	
 	
@@ -154,14 +155,14 @@ public class ListaJokalaria {
 	
 	//RONDA JOLASTU METODOA
 	public void rondaJolastu() {
-		this.jokoaBerrabiarazi();
-		this.kartakBanatu();
+		
 		//this.getZerrenda()[1].getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
 		//this.getZerrenda()[1].arrautzaKop++;
 		this.getZerrenda()[0].jokaldiaEgin();
 		if (this.getZerrenda()[0].getAzeriaErabiliDu()) {
 			if (!this.getZerrenda()[1].jokaldiExtraEgin()) {
-				this.getZerrenda()[0].getEskukoArrautzak().gehituArrautza(this.getZerrenda()[1].getEskukoArrautzak().getArrautza(0));
+				Arrautza a = new Arrautza(false);
+				this.getZerrenda()[0].getEskukoArrautzak().gehituArrautza(a);
 				this.getZerrenda()[1].getEskukoArrautzak().arrautzaKendu(0);
 				this.getZerrenda()[0].arrautzaKop++;
 				this.getZerrenda()[1].arrautzaKop--; 
@@ -170,7 +171,8 @@ public class ListaJokalaria {
 		this.getZerrenda()[1].jokaldiaEgin();
 		if (this.getZerrenda()[1].getAzeriaErabiliDu()) {
 			if (!this.getZerrenda()[0].jokaldiExtraEgin()) {
-				this.getZerrenda()[1].getEskukoArrautzak().gehituArrautza(this.getZerrenda()[1].getEskukoArrautzak().getArrautza(0));
+				Arrautza a = new Arrautza(false);
+				this.getZerrenda()[0].getEskukoArrautzak().gehituArrautza(a);
 				this.getZerrenda()[0].getEskukoArrautzak().arrautzaKendu(0);
 				this.getZerrenda()[1].arrautzaKop++;
 				this.getZerrenda()[0].arrautzaKop--; 

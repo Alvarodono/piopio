@@ -20,8 +20,10 @@ public class JokalariCPU extends Jokalaria{
 	//BESTE METODOAK	
 	//JOKALDIA EGIN METODOA
 	public void jokaldiaEgin() {
+		System.out.println("IA-ren txanda da.");
 		//this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
 		//this.arrautzaKop++;
+		this.azeriaErabiliDu = false;
 		Karta k1 = null,k2 = null,k3 = null,k4 = null, baztertzekoKarta;
 		imprimatuEskua();
 		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.getEskukoArrautzak().arrautzarikDago(), txandaZenbakia)) {
@@ -77,8 +79,7 @@ public class JokalariCPU extends Jokalaria{
 				System.out.println("Makinak azeri bat erabili du zuri arrautza bat lapurtzeko.");
 			}
 		}
-		System.out.println(" ");
-		System.out.println("Zure txanda da.");
+		
 	}
 	
 	
@@ -87,19 +88,38 @@ public class JokalariCPU extends Jokalaria{
 		public boolean jokaldiExtraEgin() {
 			boolean erantzuna = false;
 			int kont = 0;
-			Karta k;
+			Karta k1, k2, k3, k4;
 			if(this.getEskukoKartak().defendatuDezaket()){
-				Iterator<Karta> itr = this.getEskukoKartak().getIteradorea();
-				while(itr.hasNext() && kont <2) {
-					k = itr.next();
-					if (k.getMota() == "Oilar") {
-						ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k);
-						this.getEskukoKartak().kenduKartaKartaz(k);
-						this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-						kont++;						
-					}
-				}
 				erantzuna = true;
+				Iterator<Karta> itr = this.getEskukoKartak().getIteradorea();
+				k1 = itr.next();
+				k2 = itr.next();
+				k3 = itr.next();
+				k4 = itr.next();
+				if (k1.getMota() == "Oilar" && kont != 2) {
+					ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k1);
+					this.getEskukoKartak().kenduKartaKartaz(k1);
+					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+					kont++;						
+				}
+				if (k2.getMota() == "Oilar" && kont != 2) {
+					ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k2);
+					this.getEskukoKartak().kenduKartaKartaz(k2);
+					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+					kont++;						
+				}
+				if (k3.getMota() == "Oilar" && kont != 2) {
+					ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k3);
+					this.getEskukoKartak().kenduKartaKartaz(k3);
+					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+					kont++;						
+				}
+				if (k4.getMota() == "Oilar" && kont != 2) {
+					ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k4);
+					this.getEskukoKartak().kenduKartaKartaz(k4);
+					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+					kont++;						
+				}				
 			}
 			return erantzuna;
 		}
@@ -282,6 +302,15 @@ public class JokalariCPU extends Jokalaria{
 				}else if (k4.getMota() == "Azeria") {
 					k = k4;
 				}
+			}else {//descartar gallo
+				if (k1.getMota() == "Oilar") {
+					k = k1;		
+				}else if (k2.getMota() == "Oilar") {
+					k = k2;
+				}else if (k3.getMota() == "Oilar") {
+					k = k3;
+				}
+				
 			}
 		}
 		return k;

@@ -83,7 +83,7 @@ public class ListaKarta {
 		Iterator<Karta> itr = this.getIteradorea();
 		while (itr.hasNext() && kont <2) {
 			k = itr.next();
-			if (k.getMota() == "Oilo") {
+			if (k.getMota() == "Oilar") {
 				kont++;
 			}
 		}
