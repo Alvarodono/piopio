@@ -3,17 +3,13 @@ package pioupiou;
 public class JokalariArrunta extends Jokalaria {
 	
 	//ATRIBUTUAK
-	private String izena;
-	private int aukera=0;
-	private ListaKarta eskukoKartak;
-	private ListaArrautza eskukoArrautzak;
+	private int aukera=0;	
 	private int txandaZenbakia;
 	
 	
 	//ERAIKITZAILEA
 	public JokalariArrunta(String pIzena, int pAdina, int pJ){
 		super(pAdina);
-		this.izena = pIzena;
 		this.txandaZenbakia = pJ;
 	}
 	
@@ -49,7 +45,7 @@ public class JokalariArrunta extends Jokalaria {
 		//this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
 		//this.arrautzaKop++;
 		imprimatuEskua();		
-		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.getEskukoArrautzak().arrautzarikDago(), txandaZenbakia)) {
+		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.arrautzaKop, txandaZenbakia)) {
 			System.out.println("Aukeratu karta bat baztertzeko eta berri bat hartu multzotik");			
 			s1 = Teklatua.getNireTeklatua().irakurriOsoa();
 			while (s1 != 1 && s1 != 2 && s1 != 3 && s1 != 4) {
@@ -64,10 +60,9 @@ public class JokalariArrunta extends Jokalaria {
 		else {
 			System.out.println("Aukeratu kartak jokaldia egiteko:");
 			ListaKarta lista = new ListaKarta();
-			boolean arrautza = this.getEskukoArrautzak().arrautzarikDago();
 			s2 = Teklatua.getNireTeklatua().irakurriOsoa();
 			lista.gehituKarta(this.getEskukoKartak().getKarta(s2-1));
-			while (!this.getKonbinazioak().konbinazioNormalikAhalDago(lista, arrautza, txandaZenbakia)) {
+			while (!this.getKonbinazioak().konbinazioNormalikAhalDago(lista, this.arrautzaKop, txandaZenbakia)) {
 				s2 = Teklatua.getNireTeklatua().irakurriOsoa();
 				lista.gehituKarta(this.getEskukoKartak().getKarta(s2-1));				
 			}

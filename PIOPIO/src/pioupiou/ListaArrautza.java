@@ -68,17 +68,13 @@ public class ListaArrautza {
 	//ARRAUTZARIK DAGO METODOA
 	public boolean arrautzarikDago() {
 		boolean erantzuna = false;
-		/*Arrautza b;
-		boolean erantzuna = false;
+		Arrautza b;
 		Iterator<Arrautza> itr = this.getIteradorea();
 		while (itr.hasNext() && !erantzuna) {
 			b = itr.next();
 			if(!b.getTxitxa()) {
 				erantzuna = true;
 			}
-		}*/
-		if (this.getKopurua() > 0) {
-			erantzuna = true;
 		}
 		return erantzuna;		
 	}

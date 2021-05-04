@@ -26,7 +26,7 @@ public class JokalariCPU extends Jokalaria{
 		this.azeriaErabiliDu = false;
 		Karta k1 = null,k2 = null,k3 = null,k4 = null, baztertzekoKarta;
 		imprimatuEskua();
-		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.getEskukoArrautzak().arrautzarikDago(), txandaZenbakia)) {
+		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.arrautzaKop, txandaZenbakia)) {
 			Iterator<Karta> itr = this.getEskukoKartak().getIteradorea();
 			while (itr.hasNext()) {
 				k1 = itr.next();
