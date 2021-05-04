@@ -1,6 +1,7 @@
 package pioupiou;
 
 import java.util.Random;
+import java.util.Iterator;
 
 public class HasierakoBaraja {
 	
@@ -46,7 +47,11 @@ public class HasierakoBaraja {
 	
 	
 	//BANAKETA METODOA (KARTA BAT BANATZEKO)
-	public Karta banaketa() {
+	public Karta banaketa() { 
+		if (!kartakGeratzenDira()) {
+			barajaBete(); //gure eskuko kartak ez dira kontutan hartzen
+			ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().erreseteatu();
+		}
 		Karta k = null;
 		Random r = new Random();
 		if(lista.getKartaKop()>1){
@@ -62,6 +67,16 @@ public class HasierakoBaraja {
 		lista.erreseteatu();
 		barajaBete();
 	}
+	
+	//KARTAK GERATZEN DIRA METODOA
+		public boolean kartakGeratzenDira() {
+			Iterator<Karta> itr = lista.getIteradorea();
+			if (itr.hasNext()) {
+				return true;
+			}else {
+				return false;
+			}
+		}
 	
 	/*KARTAK BANATU METODOA
 	public void kartakBanatu() {

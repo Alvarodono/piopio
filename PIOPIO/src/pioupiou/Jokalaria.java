@@ -79,14 +79,17 @@ public abstract class Jokalaria {
 	
 	
 	//AURKARIAREN TXANDA METODOA
-		public int aurkariarenTxanda() {
-			if (this.txandaZenbakia == 1) {
-				return 0;
-			}else {
-				return 1;
-			}
+	public int aurkariarenTxanda() {
+		if (this.txandaZenbakia == 1) {
+			return 0;
+		}else {
+			return 1;
 		}
+	}
 		
+	
+	//IMRIMATU ESKUA METODOA
+	public abstract void imprimatuEskua();
 	
 	
 	

@@ -75,7 +75,6 @@ public class JokalariCPU extends Jokalaria{
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());					
 				this.azeriaErabiliDu = true;
-				imprimatuEskua();
 				System.out.println("Makinak azeri bat erabili du zuri arrautza bat lapurtzeko.");
 			}
 		}
@@ -85,44 +84,46 @@ public class JokalariCPU extends Jokalaria{
 	
 	
 	//JOKALDI EXTRA EGIN METODOA
-		public boolean jokaldiExtraEgin() {
-			boolean erantzuna = false;
-			int kont = 0;
-			Karta k1, k2, k3, k4;
-			if(this.getEskukoKartak().defendatuDezaket()){
-				erantzuna = true;
-				Iterator<Karta> itr = this.getEskukoKartak().getIteradorea();
-				k1 = itr.next();
-				k2 = itr.next();
-				k3 = itr.next();
-				k4 = itr.next();
-				if (k1.getMota() == "Oilar" && kont != 2) {
-					ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k1);
-					this.getEskukoKartak().kenduKartaKartaz(k1);
-					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-					kont++;						
-				}
-				if (k2.getMota() == "Oilar" && kont != 2) {
-					ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k2);
-					this.getEskukoKartak().kenduKartaKartaz(k2);
-					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-					kont++;						
-				}
-				if (k3.getMota() == "Oilar" && kont != 2) {
-					ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k3);
-					this.getEskukoKartak().kenduKartaKartaz(k3);
-					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-					kont++;						
-				}
-				if (k4.getMota() == "Oilar" && kont != 2) {
-					ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k4);
-					this.getEskukoKartak().kenduKartaKartaz(k4);
-					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-					kont++;						
-				}				
+	public boolean jokaldiExtraEgin() {
+		boolean erantzuna = false;
+		int kont = 0;
+		Karta k1, k2, k3, k4;
+		if(this.getEskukoKartak().defendatuDezaket()){
+			
+			erantzuna = true;
+			Iterator<Karta> itr = this.getEskukoKartak().getIteradorea();
+			k1 = itr.next();
+			k2 = itr.next();
+			k3 = itr.next();
+			k4 = itr.next();
+			if (k1.getMota() == "Oilar" && kont != 2) {
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k1);
+				this.getEskukoKartak().kenduKartaKartaz(k1);
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				kont++;						
 			}
-			return erantzuna;
+			if (k2.getMota() == "Oilar" && kont != 2) {
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k2);
+				this.getEskukoKartak().kenduKartaKartaz(k2);
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				kont++;						
+			}
+			if (k3.getMota() == "Oilar" && kont != 2) {
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k3);
+				this.getEskukoKartak().kenduKartaKartaz(k3);
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				kont++;						
+			}
+			if (k4.getMota() == "Oilar" && kont != 2) {
+				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k4);
+				this.getEskukoKartak().kenduKartaKartaz(k4);
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				kont++;						
+			}	
+			System.out.println("Makinak bere arrautza defendatu du bi oilar erabiliz.");
 		}
+		return erantzuna;
+	}
 	
 	
 	//TURNOA BUKATU METODOA
@@ -215,7 +216,7 @@ public class JokalariCPU extends Jokalaria{
 		}else if (oilarKont > 2) { //2.egoera
 			if (k1.getMota() == "Oilar") {
 				k = k1;
-			}else if (k2.getMota() == "Oilo") {
+			}else if (k2.getMota() == "Oilar") {
 				k = k2;
 			}
 		}else if (habiaKont > 1) { //3.egoera

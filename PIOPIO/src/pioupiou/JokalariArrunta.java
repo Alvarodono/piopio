@@ -78,7 +78,7 @@ public class JokalariArrunta extends Jokalaria {
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoArrautzak().getArrautza(0).bueltaEman();
+				this.getEskukoArrautzak().arrautzaKendu(0);
 				this.puntuak++;
 				this.arrautzaKop--;
 				imprimatuEskua();
@@ -101,7 +101,7 @@ public class JokalariArrunta extends Jokalaria {
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());						
 				this.azeriaErabiliDu = true;
-				imprimatuEskua();
+				
 				
 			}
 		}

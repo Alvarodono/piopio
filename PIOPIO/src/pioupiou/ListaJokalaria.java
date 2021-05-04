@@ -166,7 +166,8 @@ public class ListaJokalaria {
 				this.getZerrenda()[1].getEskukoArrautzak().arrautzaKendu(0);
 				this.getZerrenda()[0].arrautzaKop++;
 				this.getZerrenda()[1].arrautzaKop--; 
-			}			
+			}
+			this.getZerrenda()[0].imprimatuEskua();
 		}
 		this.getZerrenda()[1].jokaldiaEgin();
 		if (this.getZerrenda()[1].getAzeriaErabiliDu()) {
@@ -176,7 +177,9 @@ public class ListaJokalaria {
 				this.getZerrenda()[0].getEskukoArrautzak().arrautzaKendu(0);
 				this.getZerrenda()[1].arrautzaKop++;
 				this.getZerrenda()[0].arrautzaKop--; 
+				
 			}	
+			this.getZerrenda()[1].imprimatuEskua();
 		}	
 	}
 }
