@@ -37,8 +37,9 @@ public class JokalariCPU extends Jokalaria{
 			this.getEskukoKartak().kenduKartaKartaz(baztertzekoKarta);					
 			this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 			imprimatuEskua();
+			System.out.println("Makinak karta bat baztertu du eta beste bat hartu du.");
 		}else {
-			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1) {
+			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1) {//doble oilo
 				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
 				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
@@ -49,8 +50,9 @@ public class JokalariCPU extends Jokalaria{
 				this.puntuak++;
 				this.arrautzaKop--;
 				imprimatuEskua();
+				System.out.println("Makinak bi oilo erabili ditu arrautza bat txita bihurtzeko.");
 				
-			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {
+			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {//oilo oilar habia
 				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
 				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilar"));
 				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Habia"));
@@ -63,28 +65,43 @@ public class JokalariCPU extends Jokalaria{
 				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
 				this.arrautzaKop++;
 				imprimatuEskua();
+				System.out.println("Makinak oilo bat, oilar bat eta habia bat erabili ditu arrautza bat hartzeko.");
 				
-			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 3){
-				Arrautza ar = new Arrautza (false);
+			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 3){//zorro
+
 				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				ListaJokalaria.getNireListaJokalariak().getZerrenda()[this.aurkariarenTxanda()].getEskukoArrautzak().arrautzaKendu(0);
-				ListaJokalaria.getNireListaJokalariak().getZerrenda()[this.aurkariarenTxanda()].arrautzaKop--;
-				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
-				this.arrautzaKop++;
-				ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().getListaArrautza().gehituArrautza(ar);		
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());					
 				this.azeriaErabiliDu = true;
 				imprimatuEskua();
+				System.out.println("Makinak azeri bat erabili du zuri arrautza bat lapurtzeko.");
 			}
 		}
+		System.out.println(" ");
+		System.out.println("Zure txanda da.");
 	}
 	
 	
 	
 	//JOKALDI EXTRA EGIN METODOA
-		public void jokaldiExtraEgin() {
-			
+		public boolean jokaldiExtraEgin() {
+			boolean erantzuna = false;
+			int kont = 0;
+			Karta k;
+			if(this.getEskukoKartak().defendatuDezaket()){
+				Iterator<Karta> itr = this.getEskukoKartak().getIteradorea();
+				while(itr.hasNext() && kont <2) {
+					k = itr.next();
+					if (k.getMota() == "Oilar") {
+						ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k);
+						this.getEskukoKartak().kenduKartaKartaz(k);
+						this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+						kont++;						
+					}
+				}
+				erantzuna = true;
+			}
+			return erantzuna;
 		}
 	
 	
@@ -112,13 +129,7 @@ public class JokalariCPU extends Jokalaria{
 
 	
 	
-	//KONBINAZIO ONENA METODOA
-	public ListaKarta konbinazioOnena() {
-		int i = 0;
-		Karta k = null;
-		Karta kt = this.getEskukoKartak().getKarta(i);
-		String ktm = kt.getMota();					
-	}
+
 	
 	//ZER BAZTERTU CPU METODOA
 	public Karta zerBaztertuCPU(Karta k1, Karta k2, Karta k3, Karta k4) {

@@ -75,7 +75,7 @@ public abstract class Jokalaria {
 	public abstract void jokaldiaEgin();
 	
 	//JOKALDI EXTRA EGIN METODOA
-	public abstract void jokaldiExtraEgin();
+	public abstract boolean jokaldiExtraEgin();
 	
 	
 	//AURKARIAREN TXANDA METODOA

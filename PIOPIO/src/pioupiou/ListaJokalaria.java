@@ -160,10 +160,21 @@ public class ListaJokalaria {
 		//this.getZerrenda()[1].arrautzaKop++;
 		this.getZerrenda()[0].jokaldiaEgin();
 		if (this.getZerrenda()[0].getAzeriaErabiliDu()) {
-			this.getZerrenda()[1].jokaldiExtraEgin();
+			if (!this.getZerrenda()[1].jokaldiExtraEgin()) {
+				this.getZerrenda()[0].getEskukoArrautzak().gehituArrautza(this.getZerrenda()[1].getEskukoArrautzak().getArrautza(0));
+				this.getZerrenda()[1].getEskukoArrautzak().arrautzaKendu(0);
+				this.getZerrenda()[0].arrautzaKop++;
+				this.getZerrenda()[1].arrautzaKop--; 
+			}			
 		}
-		//this.getZerrenda()[1].jokaldiaEgin();
+		this.getZerrenda()[1].jokaldiaEgin();
+		if (this.getZerrenda()[1].getAzeriaErabiliDu()) {
+			if (!this.getZerrenda()[0].jokaldiExtraEgin()) {
+				this.getZerrenda()[1].getEskukoArrautzak().gehituArrautza(this.getZerrenda()[1].getEskukoArrautzak().getArrautza(0));
+				this.getZerrenda()[0].getEskukoArrautzak().arrautzaKendu(0);
+				this.getZerrenda()[1].arrautzaKop++;
+				this.getZerrenda()[0].arrautzaKop--; 
+			}	
+		}	
 	}
-	
-	
 }

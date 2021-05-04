@@ -107,7 +107,7 @@ public class JokalariArrunta extends Jokalaria {
 				
 			}
 		}
-		System.out.println("IA-ren txanda");
+		System.out.println("IA-ren txanda da.");
 	}
 			/*System.out.println("Aukeratu jokatu nahi dituzun kartak:");
 			
@@ -146,13 +146,22 @@ public class JokalariArrunta extends Jokalaria {
 	//}
 	
 	//JOKALDI EXTRA EGIN METODOA
-	public void jokaldiExtraEgin() {
+	public boolean jokaldiExtraEgin() {
+		boolean erantzuna = false;
 		int s1,s2;
 		if (this.getEskukoKartak().defendatuDezaket()) {
 			System.out.println("Aukeratu kartak defendatzeko");
 			s1 = Teklatua.getNireTeklatua().irakurriOsoa();
 			s2 = Teklatua.getNireTeklatua().irakurriOsoa();
+			ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(s1-1));
+			ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(s2-1));
+			this.getEskukoKartak().kenduKartaZenbakiz(s2-1);
+			this.getEskukoKartak().kenduKartaZenbakiz(s1-1);
+			this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+			this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());	
+			erantzuna = true;
 		}
+		return erantzuna;
 	}
 	
 	//AUKERATU ESKUKO KARTA METODOA
