@@ -102,6 +102,8 @@ public class JokalariArrunta extends Jokalaria {
 		}
 		
 	}
+	
+	
 			/*System.out.println("Aukeratu jokatu nahi dituzun kartak:");
 			
 			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {//oilo oilar habia
@@ -137,6 +139,12 @@ public class JokalariArrunta extends Jokalaria {
 			}		
 		}*/		
 	//}
+	
+	//IRABAZLE MEZUA METODOA
+	public void irabazleMezua() {
+		System.out.println("Irabazlea zara!");
+	}
+	
 	
 	//JOKALDI EXTRA EGIN METODOA
 	public boolean jokaldiExtraEgin() {

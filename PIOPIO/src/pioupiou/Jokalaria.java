@@ -91,6 +91,9 @@ public abstract class Jokalaria {
 	//IMRIMATU ESKUA METODOA
 	public abstract void imprimatuEskua();
 	
+	//IRABAZLE MEZUA METODOA
+	public abstract void irabazleMezua();
+	
 	
 	
 	

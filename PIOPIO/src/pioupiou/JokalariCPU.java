@@ -48,7 +48,7 @@ public class JokalariCPU extends Jokalaria{
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoArrautzak().getArrautza(0).bueltaEman();
+			
 				this.puntuak++;
 				this.arrautzaKop--;
 				imprimatuEskua();
@@ -121,6 +121,8 @@ public class JokalariCPU extends Jokalaria{
 				kont++;						
 			}	
 			System.out.println("Makinak bere arrautza defendatu du bi oilar erabiliz.");
+		}else {
+			System.out.println("Makinak ez du arrautza defendatzeko aukerarik.");
 		}
 		return erantzuna;
 	}
@@ -148,7 +150,10 @@ public class JokalariCPU extends Jokalaria{
 		System.out.println(" ");
 	}
 
-	
+	//IRABAZLE MEZUA METODOA
+		public void irabazleMezua() {
+			System.out.println("Makinak irabazi du!");
+		}
 	
 
 	

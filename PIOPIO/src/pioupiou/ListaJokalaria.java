@@ -131,6 +131,11 @@ public class ListaJokalaria {
 		while (!bukaera()) {
 			rondaJolastu();		
 		}
+		if (this.getZerrenda()[1].getPuntuak() == 3) {
+			System.out.println("Jokua bukatu da");
+			this.getZerrenda()[1].irabazleMezua();
+		}
+		
 	}	
 	
 	
@@ -156,30 +161,35 @@ public class ListaJokalaria {
 	//RONDA JOLASTU METODOA
 	public void rondaJolastu() {
 		
-		//this.getZerrenda()[1].getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
-		//this.getZerrenda()[1].arrautzaKop++;
-		this.getZerrenda()[0].jokaldiaEgin();
-		if (this.getZerrenda()[0].getAzeriaErabiliDu()) {
-			if (!this.getZerrenda()[1].jokaldiExtraEgin()) {
-				Arrautza a = new Arrautza(false);
-				this.getZerrenda()[0].getEskukoArrautzak().gehituArrautza(a);
-				this.getZerrenda()[1].getEskukoArrautzak().arrautzaKendu(0);
-				this.getZerrenda()[0].arrautzaKop++;
-				this.getZerrenda()[1].arrautzaKop--; 
+		
+			this.getZerrenda()[0].jokaldiaEgin();
+			if (this.getZerrenda()[0].getAzeriaErabiliDu()) {
+				if (!this.getZerrenda()[1].jokaldiExtraEgin()) {
+					Arrautza a = new Arrautza(false);
+					this.getZerrenda()[0].getEskukoArrautzak().gehituArrautza(a);
+					this.getZerrenda()[1].getEskukoArrautzak().arrautzaKendu(0);
+					this.getZerrenda()[0].arrautzaKop++;
+					this.getZerrenda()[1].arrautzaKop--; 
+				}
+				this.getZerrenda()[0].imprimatuEskua();
+			}		
+		if (this.getZerrenda()[0].getPuntuak() != 3) {
+			this.getZerrenda()[1].jokaldiaEgin();
+			if (this.getZerrenda()[1].getAzeriaErabiliDu()) {
+				if (!this.getZerrenda()[0].jokaldiExtraEgin()) {
+					Arrautza a = new Arrautza(false);
+					this.getZerrenda()[0].getEskukoArrautzak().gehituArrautza(a);
+					this.getZerrenda()[0].getEskukoArrautzak().arrautzaKendu(0);
+					this.getZerrenda()[1].arrautzaKop++;
+					this.getZerrenda()[0].arrautzaKop--; 
+					
+				}	
+				this.getZerrenda()[1].imprimatuEskua();
 			}
-			this.getZerrenda()[0].imprimatuEskua();
+		}else {
+			System.out.println("Jokua bukatu da");
+			this.getZerrenda()[0].irabazleMezua();
 		}
-		this.getZerrenda()[1].jokaldiaEgin();
-		if (this.getZerrenda()[1].getAzeriaErabiliDu()) {
-			if (!this.getZerrenda()[0].jokaldiExtraEgin()) {
-				Arrautza a = new Arrautza(false);
-				this.getZerrenda()[0].getEskukoArrautzak().gehituArrautza(a);
-				this.getZerrenda()[0].getEskukoArrautzak().arrautzaKendu(0);
-				this.getZerrenda()[1].arrautzaKop++;
-				this.getZerrenda()[0].arrautzaKop--; 
-				
-			}	
-			this.getZerrenda()[1].imprimatuEskua();
-		}	
+		
 	}
 }
