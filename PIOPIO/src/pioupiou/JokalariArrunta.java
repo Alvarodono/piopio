@@ -16,8 +16,13 @@ public class JokalariArrunta extends Jokalaria {
 	//BESTE METODOAK		
 	//IMPRIMATU ESKUA METODOA
 	public void imprimatuEskua() {
+		int i;
+		if (txandaZenbakia == 0) {
+			i = 1;
+		}else {
+			i = 0;
+		}
 		System.out.println("Zure eskuko kartak:");
-		System.out.println(" ");
 		System.out.println("╔═════════════════════════╗");
 		this.getEskukoKartak().imprimatuKartak();
 		System.out.println("╠═════════════════════════╣");
@@ -28,7 +33,16 @@ public class JokalariArrunta extends Jokalaria {
 		System.out.print(this.puntuak);
 		System.out.println(" ║");
 		System.out.println("╚═════════════════════════╝");	
-		System.out.println(" ");
+		System.out.println("IA-ren arrautzak:");
+		System.out.println("╔═════════════════════════╗");
+		System.out.print("║");
+		System.out.print(" Arrautzak:");
+		System.out.print(ListaJokalaria.getNireListaJokalariak().getZerrenda()[i].arrautzaKop);
+		System.out.print("    Txitak:");
+		System.out.print(ListaJokalaria.getNireListaJokalariak().getZerrenda()[i].arrautzaKop);
+		System.out.println(" ║");
+		System.out.println("╚═════════════════════════╝");
+		
 	}
 	
 	//GET TXANDA ZENBAKIA METODOA
@@ -40,6 +54,7 @@ public class JokalariArrunta extends Jokalaria {
 	public void jokaldiaEgin() {
 		System.out.println(" ");
 		System.out.println("Zure txanda da.");
+		System.out.println(" ");
 		int s1, s2;
 		this.azeriaErabiliDu = false;
 		//this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
@@ -58,14 +73,23 @@ public class JokalariArrunta extends Jokalaria {
 			imprimatuEskua();
 		}
 		else {
+			
 			System.out.println("Aukeratu kartak jokaldia egiteko:");
+			int i = 0;
 			ListaKarta lista = new ListaKarta();
 			s2 = Teklatua.getNireTeklatua().irakurriOsoa();
 			lista.gehituKarta(this.getEskukoKartak().getKarta(s2-1));
 			while (!this.getKonbinazioak().konbinazioNormalikAhalDago(lista, this.arrautzaKop, txandaZenbakia)) {
 				s2 = Teklatua.getNireTeklatua().irakurriOsoa();
-				lista.gehituKarta(this.getEskukoKartak().getKarta(s2-1));				
+				lista.gehituKarta(this.getEskukoKartak().getKarta(s2-1));		
+				i++;
+				if (i == 3 ) {
+					System.out.println("Konbinazio okerra");
+					lista.erreseteatu();
+					i = -1;
+				}
 			}
+			
 			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1) {//oilo oilo
 				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
 				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));

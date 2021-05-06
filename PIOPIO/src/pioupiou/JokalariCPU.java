@@ -1,25 +1,24 @@
 package pioupiou;
 
-import java.util.ArrayList;
+
 import java.util.Iterator;
 
 public class JokalariCPU extends Jokalaria{
 	//ATRIBUTUAK
-	private String izena;
-	private ListaKarta eskukoKartak;
-	private ListaArrautza eskukoArrautzak;
+	
 	private int txandaZenbakia;
 	
 	//ERAIKITZAILEA 
 	public JokalariCPU(int pAdina, int pM) {
 		super(pAdina);
-		this.izena = "CPU"; 
+	
 		this.txandaZenbakia = pM;
 	}
 	
 	//BESTE METODOAK	
 	//JOKALDIA EGIN METODOA
 	public void jokaldiaEgin() {
+		System.out.println(" ");
 		System.out.println("IA-ren txanda da.");
 		//this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
 		//this.arrautzaKop++;
@@ -122,7 +121,7 @@ public class JokalariCPU extends Jokalaria{
 			}	
 			System.out.println("Makinak bere arrautza defendatu du bi oilar erabiliz.");
 		}else {
-			System.out.println("Makinak ez du arrautza defendatzeko aukerarik.");
+			System.out.println("Makinak ez du arrauytza defendatzeko aukerarik.");
 		}
 		return erantzuna;
 	}
@@ -135,19 +134,19 @@ public class JokalariCPU extends Jokalaria{
 	
 	//IMPRIMATU ESKUA METODOA
 	public void imprimatuEskua() {
-		System.out.println("Makinaren kartak:");
+		/*System.out.println("Makinaren kartak:");
 		System.out.println(" ");
 		System.out.println("╔═════════════════════════╗");
 		this.getEskukoKartak().imprimatuKartak();
 		System.out.println("╠═════════════════════════╣");
 		System.out.print("║");
-		System.out.print(" Arrautzak:");
+		System.out.print("IA-ren arrautzak:");
 		System.out.print(this.arrautzaKop);
 		System.out.print("    Txitak:");
 		System.out.print(this.puntuak);
 		System.out.println(" ║");
 		System.out.println("╚═════════════════════════╝");
-		System.out.println(" ");
+		System.out.println(" ");*/
 	}
 
 	//IRABAZLE MEZUA METODOA

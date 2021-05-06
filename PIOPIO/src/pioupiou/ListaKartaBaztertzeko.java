@@ -1,6 +1,6 @@
 package pioupiou;
 
-import java.util.ArrayList;
+
 
 public class ListaKartaBaztertzeko {
 	

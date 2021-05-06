@@ -113,14 +113,14 @@ public class ListaJokalaria {
 		
 		if (adinaCPU > adina) {
 			System.out.println("Makina lehenengo jokalaria da");
-			System.out.println(" ");
+			
 			m = 0;
 			j = 1;
 			
 		}
 		else {
 			System.out.println("Lehenengo jokalaria zara");
-			System.out.println(" ");
+			
 			j = 0;
 			m = 1;
 		}
@@ -178,7 +178,7 @@ public class ListaJokalaria {
 			if (this.getZerrenda()[1].getAzeriaErabiliDu()) {
 				if (!this.getZerrenda()[0].jokaldiExtraEgin()) {
 					Arrautza a = new Arrautza(false);
-					this.getZerrenda()[0].getEskukoArrautzak().gehituArrautza(a);
+					this.getZerrenda()[1].getEskukoArrautzak().gehituArrautza(a);
 					this.getZerrenda()[0].getEskukoArrautzak().arrautzaKendu(0);
 					this.getZerrenda()[1].arrautzaKop++;
 					this.getZerrenda()[0].arrautzaKop--; 

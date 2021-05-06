@@ -10,7 +10,7 @@ public class Teklatua {
 
 	//ERAIKITZAILEA
 	private Teklatua() {
-		this.sc=new Scanner(System.in);
+		Teklatua.sc=new Scanner(System.in);
 	}
 
 	//BESTE METODOAK
@@ -78,6 +78,6 @@ public class Teklatua {
 	
 	//IRAKURRI ENTER METODOA
 	public void irakurriEnter() {
-		this.sc.nextLine();
+		Teklatua.sc.nextLine();
 	}
 }

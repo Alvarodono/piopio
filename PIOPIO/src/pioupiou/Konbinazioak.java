@@ -1,15 +1,14 @@
 package pioupiou;
 
-import java.util.ArrayList;
+
 import java.util.Iterator;
 
 public class Konbinazioak {
 	
 	//ATRIBUTUAK
 	private static Konbinazioak nireKonbinazioak = null;
-	private boolean aurkitua = false;
+
 	private ListaKarta konbiKartak;
-	private ArrayList<Karta> lista;
 	private int konbinazioMota = 0;
 	
 	
@@ -38,10 +37,7 @@ public class Konbinazioak {
 		return konbiKartak;
 	}
 	
-	//GET ITERADOREA METODOA
-	private Iterator<Karta> getIteradorea(){
-		return this.lista.iterator();
-	}
+	
 	
 	/*KONBINAZIORIK DAGO METODOA
 	public boolean konbinazioNormalikAhalDago(ListaKarta pLista) {
