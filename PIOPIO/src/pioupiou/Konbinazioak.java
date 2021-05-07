@@ -38,24 +38,6 @@ public class Konbinazioak {
 	}
 	
 	
-	
-	/*KONBINAZIORIK DAGO METODOA
-	public boolean konbinazioNormalikAhalDago(ListaKarta pLista) {
-		Karta k1;
-		Karta k2;
-		Karta k3;
-		Karta k4;
-		Iterator<Karta> itr = this.getIteradorea(); 
-		boolean erantzuna = false;
-		while(itr.hasNext() && !erantzuna) {			
-			k1 = itr.next();
-			k2 = itr.next();
-			k3 = itr.next();
-			k4 = itr.next();
-		}		
-		return erantzuna;	
-	}*/
-	
 	//KONBINAZIOA DA METODOA
 	public boolean konbinazioNormalikAhalDago(ListaKarta listaKarta, int arrautzaKop, int jokalaria)  {
 		int i;

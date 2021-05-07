@@ -129,7 +129,7 @@ public class JokalariCPU extends Jokalaria{
 	
 	//IMPRIMATU ESKUA METODOA
 	public void imprimatuEskua() {
-		/*System.out.println("Makinaren kartak:");
+		System.out.println("Makinaren kartak:");
 		System.out.println(" ");
 		System.out.println("╔═════════════════════════╗");
 		this.getEskukoKartak().imprimatuKartak();
@@ -141,7 +141,7 @@ public class JokalariCPU extends Jokalaria{
 		System.out.print(this.puntuak);
 		System.out.println(" ║");
 		System.out.println("╚═════════════════════════╝");
-		System.out.println(" ");*/
+		System.out.println(" ");
 	}
 
 	//IRABAZLE MEZUA METODOA
