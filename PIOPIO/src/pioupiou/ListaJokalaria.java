@@ -52,22 +52,34 @@ public class ListaJokalaria {
 	
 	//PARTIDA HASIERATU METODOA
 	public void partidaHasieratu() {
-		File txt= new File ("E:/Alvaro/pmoo/PIOU PIOU/res/Hasiera.txt");
-		irakurri(txt);
-		System.out.println("Sakatu 1 jolasteko edo 2 arauak irakurtzeko");
+		System.out.println("                MENUA");
+		System.out.println("Sakatu 1 jolasteko, 2 arauak irakurtzeko edo 3 irtetzeko");
 		int sarrera = Teklatua.getNireTeklatua().irakurriOsoa();
 		try{
 			if(sarrera==1){
 				partidaJolastu();
 			}
 			else if(sarrera==2){
-				File txt1= new File ("E:/Alvaro/pmoo/PIOU PIOU/res/Arauak.txt");
-				irakurri(txt1);
+				System.out.println("Jokuaren helburua: 3 txita lortzea aurkariak baino lehen.");
+				System.out.println("Arauak: Jokalari bakoitzak 4 karta hartuko ditu eta urte gehiago dituen jokalaria hasiko da."); 
+				System.out.println("Zure txanda denean jokatzeko konbinaziorik izanez gero nahitaezkoa da jokaldia egitea,"); 
+				System.out.println("jokaldia egin eta gero erabilitako kartak baztertu eta berri batzuk hartuko dira 4 izan arte."); 
+				System.out.println("Konbinazio posiblerik ez baduzu zure aukerako karta bat baztertu eta berri bat hartuko duzu.");
+				System.out.println("Konbinazio posibleak:");
+				System.out.println("1. Oilo/Oilar/Habia = Arrautza bat hartu");
+				System.out.println("2. Oilo/Oilo = Arrautzarik izanez gero txita bihurtu");				
+				System.out.println("3. Azeria = Aurkariak arrautzaren bat izanez gero hau lapurtzen saiatu");
+				System.out.println("4. Oilar/Oilar = Aurkariak azeriarekin erasoz gero hauek erabiliz arrautza defendatu dezakezu");
+				System.out.println("Programak konbinazioa sartzeko eskatzen dizunean zenbakiak eskatuko ditu konbinazioa dagoela detektatu arte");
+
+				System.out.println(" ");				
 				System.out.println("Sakatu enter menura itzultzeko");
 				Teklatua.getNireTeklatua().irakurriEnter();
 				partidaHasieratu();
-				}			
-			else
+			}
+			else if (sarrera ==3) {
+				System.exit(1);
+			}
 				throw new HasieranAukeraOkerraSalbuespena();
 		}catch(HasieranAukeraOkerraSalbuespena e){
 			e.inprimatuMezua();
@@ -75,15 +87,7 @@ public class ListaJokalaria {
 		}
 	}
 	
-	//TXANDA JOLASTU METODOA
-	public void txandaJolastu() {
-		
-	}
 	
-	//TXANDA BUKATU METODOA
-	public void txandaBukatu() {
-		
-	}
 	
 	//KARTAK BANATU METODOA
 	public void kartakBanatu() {
@@ -159,9 +163,7 @@ public class ListaJokalaria {
 	}
 	
 	//RONDA JOLASTU METODOA
-	public void rondaJolastu() {
-		
-		
+	public void rondaJolastu() {		
 			this.getZerrenda()[0].jokaldiaEgin();
 			if (this.getZerrenda()[0].getAzeriaErabiliDu()) {
 				if (!this.getZerrenda()[1].jokaldiExtraEgin()) {

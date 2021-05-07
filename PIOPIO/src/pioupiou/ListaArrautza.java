@@ -1,7 +1,7 @@
 package pioupiou;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+
 
 
 public class ListaArrautza {
@@ -17,12 +17,7 @@ public class ListaArrautza {
 	
 	}
 	
-	//BESTE METODOAK
-	//GET ITERADOREA METODOA
-	private Iterator<Arrautza> getIteradorea(){
-		return this.lista.iterator();
-	}	
-	
+	//BESTE METODOAK	
 	//GET ARRAUTZA METODOA
 		public Arrautza getArrautza(int pPos) {
 			Arrautza a = lista.get(pPos);
@@ -65,19 +60,7 @@ public class ListaArrautza {
 	}
 	
 	
-	//ARRAUTZARIK DAGO METODOA
-	public boolean arrautzarikDago() {
-		boolean erantzuna = false;
-		Arrautza b;
-		Iterator<Arrautza> itr = this.getIteradorea();
-		while (itr.hasNext() && !erantzuna) {
-			b = itr.next();
-			if(!b.getTxitxa()) {
-				erantzuna = true;
-			}
-		}
-		return erantzuna;		
-	}
+	
 	
 	
 }

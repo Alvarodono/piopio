@@ -49,12 +49,12 @@ public class ListaArrautzaHartzeko {
 	//LISTA ARRAUTZA BETE METODOA
 	public void listaArrautzaBete() {
 		int i = 0;
-		while (i<18) {
+		while (i<100) {
 			lista.gehituArrautza(new Arrautza (false)); 
 			kopurua++;
 			i++;
 		}
-		this.kopurua = 18;			
+		this.kopurua = 100;			
 	}
 
 	//RESET METODOA

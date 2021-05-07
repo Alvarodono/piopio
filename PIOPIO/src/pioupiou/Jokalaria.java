@@ -29,9 +29,9 @@ public abstract class Jokalaria {
 	}
 		
 	//GET ESKUKO ARRAUTZAK METODOA
-	protected ListaArrautza getEskukoArrautzak(){
-		return this.eskukoArrautzak;
-	}	
+    protected ListaArrautza getEskukoArrautzak(){
+        return this.eskukoArrautzak;
+    } 
 	
 	//GET ARRAUTZA KOP METODOA
 	protected int getArrautzKop() {
@@ -76,16 +76,6 @@ public abstract class Jokalaria {
 	
 	//JOKALDI EXTRA EGIN METODOA
 	public abstract boolean jokaldiExtraEgin();
-	
-	
-	//AURKARIAREN TXANDA METODOA
-	public int aurkariarenTxanda() {
-		if (this.txandaZenbakia == 1) {
-			return 0;
-		}else {
-			return 1;
-		}
-	}
 		
 	
 	//IMRIMATU ESKUA METODOA

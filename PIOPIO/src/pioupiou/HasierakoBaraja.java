@@ -1,7 +1,7 @@
 package pioupiou;
 
 import java.util.Random;
-import java.util.Iterator;
+
 
 public class HasierakoBaraja {
 	
@@ -68,26 +68,5 @@ public class HasierakoBaraja {
 		barajaBete();
 	}
 	
-	//KARTAK GERATZEN DIRA METODOA
-		public boolean kartakGeratzenDira() {
-			Iterator<Karta> itr = lista.getIteradorea();
-			if (itr.hasNext()) {
-				return true;
-			}else {
-				return false;
-			}
-		}
 	
-	/*KARTAK BANATU METODOA
-	public void kartakBanatu() {
-		int kont = 4;
-		while (kont > 0) {
-			Karta k = null;
-			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
-			this.getZerrenda()[0].getEskukoKartak().gehituKarta(k);
-			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
-			this.getZerrenda()[1].getEskukoKartak().gehituKarta(k);
-			kont--;
-		}
-	}*/
 }

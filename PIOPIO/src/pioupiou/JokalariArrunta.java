@@ -3,7 +3,6 @@ package pioupiou;
 public class JokalariArrunta extends Jokalaria {
 	
 	//ATRIBUTUAK
-	private int aukera=0;	
 	private int txandaZenbakia;
 	
 	
@@ -39,7 +38,7 @@ public class JokalariArrunta extends Jokalaria {
 		System.out.print(" Arrautzak:");
 		System.out.print(ListaJokalaria.getNireListaJokalariak().getZerrenda()[i].arrautzaKop);
 		System.out.print("    Txitak:");
-		System.out.print(ListaJokalaria.getNireListaJokalariak().getZerrenda()[i].arrautzaKop);
+		System.out.print(ListaJokalaria.getNireListaJokalariak().getZerrenda()[i].puntuak);
 		System.out.println(" ║");
 		System.out.println("╚═════════════════════════╝");
 		
@@ -128,41 +127,6 @@ public class JokalariArrunta extends Jokalaria {
 	}
 	
 	
-			/*System.out.println("Aukeratu jokatu nahi dituzun kartak:");
-			
-			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {//oilo oilar habia
-				s2 = Teklatua.getNireTeklatua().irakurriOsoa();
-				s3 = Teklatua.getNireTeklatua().irakurriOsoa();
-				s4 = Teklatua.getNireTeklatua().irakurriOsoa();
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(s2-1));
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(s3-1));
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(s4-1));
-				this.getEskukoKartak().kenduKartaZenbakiz(s4-1);
-				this.getEskukoKartak().kenduKartaZenbakiz(s3-1);
-				this.getEskukoKartak().kenduKartaZenbakiz(s2-1);
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
-				this.arrautzaKop++;
-				imprimatuEskua();				
-			}
-			else if((Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1)) {//bi oilo
-				s2 = Teklatua.getNireTeklatua().irakurriOsoa();
-				s3 = Teklatua.getNireTeklatua().irakurriOsoa();
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(s2-1));
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().getKarta(s3-1));
-				this.getEskukoKartak().kenduKartaZenbakiz(s3-1);
-				this.getEskukoKartak().kenduKartaZenbakiz(s2-1);
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoArrautzak().getArrautza(0).bueltaEman();
-				this.puntuak++;
-				this.arrautzaKop--;
-				imprimatuEskua();				
-			}		
-		}*/		
-	//}
 	
 	//IRABAZLE MEZUA METODOA
 	public void irabazleMezua() {
@@ -189,43 +153,8 @@ public class JokalariArrunta extends Jokalaria {
 		return erantzuna;
 	}
 	
-	//AUKERATU ESKUKO KARTA METODOA
-	public Karta aukeratuEskukoKarta() {
-		Karta k=null;
-		Boolean denaOndo=false;
-		String sarrera=Teklatua.getNireTeklatua().irakurriString();
-		try {
-			aukera=Integer.parseInt(sarrera);
-			denaOndo=true;
-		}catch(NumberFormatException e) {
-			System.out.println("Sarrera zenbaki bat izan behar da.");
-			this.aukeratuEskukoKarta();
-		}
-		if(denaOndo) {	
-			try {
-				k=getEskukoKartak().getKarta(aukera-1);
-			}catch(IndexOutOfBoundsException e){
-				System.out.println("Aukeratutako posizioan ez dago kartarik");
-				this.aukeratuEskukoKarta();
-			}
-		}
-		return k;
-		
-	}
 	
-	//AUKERATU MAHAIKO KARTAK METODOA
-	public void aukeratuMahaikoKartak() {
-		
-	}
 	
-	//MAHAIKO AUKERAKETA EGIN
-	public void mahaikoAukeraketaEgin() {
-		
-	}
 	
-	//TURNOA BUKATU METODOA
-	public void turnoaBukatu() {
-		
-	}
 
 }

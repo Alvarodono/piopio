@@ -46,8 +46,7 @@ public class JokalariCPU extends Jokalaria{
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-			
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());			
 				this.puntuak++;
 				this.arrautzaKop--;
 				imprimatuEskua();
@@ -121,16 +120,12 @@ public class JokalariCPU extends Jokalaria{
 			}	
 			System.out.println("Makinak bere arrautza defendatu du bi oilar erabiliz.");
 		}else {
-			System.out.println("Makinak ez du arrauytza defendatzeko aukerarik.");
+			System.out.println("Makinak ez du arrautza defendatzeko aukerarik.");
 		}
 		return erantzuna;
 	}
 	
-	
-	//TURNOA BUKATU METODOA
-	public void turnoaBukatu() {
-		
-	}
+
 	
 	//IMPRIMATU ESKUA METODOA
 	public void imprimatuEskua() {

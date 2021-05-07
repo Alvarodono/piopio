@@ -4,7 +4,7 @@ public class Karta {
 	
 	//ATRIBUTUAK
 	private String mota;
-	private boolean aukeratua;
+
 	
 	//ERAIKITZAILEA
 	public Karta (String pMota) {
@@ -17,15 +17,7 @@ public class Karta {
 		return this.mota;
 	}
 	
-	//AUKERATUA METODOA
-	public boolean aukeratua() {
-		return aukeratua;
-	}
 	
-	//SET AUKERATUA METODOA
-	public void aukeratua(boolean a) {
-		this.aukeratua = a;
-	}
 	
 	//IMPRIMATU KARTA METODOA
 	public void imprimatuKarta() {

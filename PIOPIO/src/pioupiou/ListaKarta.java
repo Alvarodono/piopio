@@ -103,16 +103,8 @@ public class ListaKarta {
 				k = b;
 			}
 		}
-		return k;
-		
-		
-	}
-	
-	//KONBINAZIORIK DAGO METODOA
-	public boolean konbinaziorikDago() {
-		boolean erantzuna = true;
-		return erantzuna;
-	}
+		return k;		
+	}	
 }
 
 
