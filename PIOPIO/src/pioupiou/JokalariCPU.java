@@ -20,8 +20,6 @@ public class JokalariCPU extends Jokalaria{
 	public void jokaldiaEgin() {
 		System.out.println(" ");
 		System.out.println("IA-ren txanda da.");
-		//this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
-		//this.arrautzaKop++;
 		this.azeriaErabiliDu = false;
 		Karta k1 = null,k2 = null,k3 = null,k4 = null, baztertzekoKarta;
 		//imprimatuEskua();
