@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 public class ListaJokalaria {
 	
 	//ATRIBUTUAK
-	private Jokalaria[]lista;
+	private static Jokalaria[]lista;
 	private static ListaJokalaria nireListaJokalaria = null;
 	private int jokalariKop = 2;
 	
@@ -28,7 +28,7 @@ public class ListaJokalaria {
 	}
 	
 	//GET ZERRENDA METODOA
-	public Jokalaria[] getZerrenda() {
+	public static Jokalaria[] getZerrenda() {
 		return lista;
 	}
 	
@@ -50,8 +50,13 @@ public class ListaJokalaria {
 		}
 	}
 	
+	//MAIN METODOA
+	public static void main(String[] args) {
+		partidaHasieratu();
+	}
+	
 	//PARTIDA HASIERATU METODOA
-	public void partidaHasieratu() {
+	public static void partidaHasieratu() {
 		System.out.println("                MENUA");
 		System.out.println("Sakatu 1 jolasteko, 2 arauak irakurtzeko edo 3 irtetzeko");
 		int sarrera = Teklatua.getNireTeklatua().irakurriOsoa();
@@ -90,14 +95,14 @@ public class ListaJokalaria {
 	
 	
 	//KARTAK BANATU METODOA
-	public void kartakBanatu() {
+	public static void kartakBanatu() {
 		int kont = 4;
 		while (kont > 0) {
 			Karta k = null;
 			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
-			this.getZerrenda()[0].getEskukoKartak().gehituKarta(k);
+			getZerrenda()[0].getEskukoKartak().gehituKarta(k);
 			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
-			this.getZerrenda()[1].getEskukoKartak().gehituKarta(k);
+			getZerrenda()[1].getEskukoKartak().gehituKarta(k);
 			kont--;
 		}
 	}		
@@ -105,19 +110,18 @@ public class ListaJokalaria {
 	
 	
 	//PARTIDA JOLASTU METODOA	
-	public void partidaJolastu() {
+	public static void partidaJolastu() {
 		int j,m;
-		System.out.println("Sartu zure izena");		
+		System.out.println("Sartu zure nick-a");		
 		String izena = Teklatua.getNireTeklatua().irakurriString();
 		System.out.println("Sartu zure adina");
 		Teklatua.getNireTeklatua();
-		int adina = Teklatua.irakurriZenb();
+		int adina = Teklatua.getNireTeklatua().irakurriOsoa();
 		Random rd = new Random();
 		int adinaCPU = rd.nextInt(100)+1;
 		
 		if (adinaCPU > adina) {
-			System.out.println("Makina lehenengo jokalaria da");
-			
+			System.out.println("Makina lehenengo jokalaria da");			
 			m = 0;
 			j = 1;
 			
@@ -130,67 +134,66 @@ public class ListaJokalaria {
 		}
 		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(izena,adina,j);
 		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU,m);
-		this.jokoaBerrabiarazi();
-		this.kartakBanatu();
+		jokoaBerrabiarazi();
+		kartakBanatu();
 		while (!bukaera()) {
 			rondaJolastu();		
 		}
-		if (this.getZerrenda()[1].getPuntuak() == 3) {
+		if (getZerrenda()[1].getPuntuak() == 3) {
 			System.out.println("Jokua bukatu da");
-			this.getZerrenda()[1].irabazleMezua();
+			getZerrenda()[1].irabazleMezua();
 		}
 		
 	}	
 	
 	
 	//JOKOA BERRABIARAZI METODOA
-	public void jokoaBerrabiarazi() {
-		this.getZerrenda()[0].denaErreseteatu();
-		this.getZerrenda()[1].denaErreseteatu();
+	public static void jokoaBerrabiarazi() {
+		getZerrenda()[0].denaErreseteatu();
+		getZerrenda()[1].denaErreseteatu();
 		HasierakoBaraja.getNireHasierakoBaraja().reset();
-		ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().reset();
-		ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().erreseteatu();		
+		ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().reset();	
 	}	
 	
 	
 	//BUKAERA METODOA
-	public boolean bukaera() {
+	public static boolean bukaera() {
 		boolean erantzuna = false;
-		if (this.getZerrenda()[0].getPuntuak() == 3 || this.getZerrenda()[1].getPuntuak() == 3){
+		if (getZerrenda()[0].getPuntuak() == 3 || getZerrenda()[1].getPuntuak() == 3){
 			erantzuna = true;
 		}
 		return erantzuna;
 	}
 	
 	//RONDA JOLASTU METODOA
-	public void rondaJolastu() {		
-			this.getZerrenda()[0].jokaldiaEgin();
-			if (this.getZerrenda()[0].getAzeriaErabiliDu()) {
-				if (!this.getZerrenda()[1].jokaldiExtraEgin()) {
+	public static void rondaJolastu() {		
+			getZerrenda()[0].jokaldiaEgin();
+			if (getZerrenda()[0].getAzeriaErabiliDu()) {
+				if (!getZerrenda()[1].jokaldiExtraEgin()) {
 					Arrautza a = new Arrautza(false);
-					this.getZerrenda()[0].getEskukoArrautzak().gehituArrautza(a);
-					this.getZerrenda()[1].getEskukoArrautzak().arrautzaKendu(0);
-					this.getZerrenda()[0].arrautzaKop++;
-					this.getZerrenda()[1].arrautzaKop--; 
+					getZerrenda()[0].getEskukoArrautzak().gehituArrautza(a);
+					getZerrenda()[1].getEskukoArrautzak().arrautzaKendu(0);
+					getZerrenda()[0].arrautzaKop++;
+					getZerrenda()[1].arrautzaKop--; 
 				}
-				this.getZerrenda()[0].imprimatuEskua();
+				getZerrenda()[0].imprimatuEskua();
 			}		
-		if (this.getZerrenda()[0].getPuntuak() != 3) {
-			this.getZerrenda()[1].jokaldiaEgin();
-			if (this.getZerrenda()[1].getAzeriaErabiliDu()) {
-				if (!this.getZerrenda()[0].jokaldiExtraEgin()) {
+		if (getZerrenda()[0].getPuntuak() != 3) {
+			getZerrenda()[1].jokaldiaEgin();
+			if (getZerrenda()[1].getAzeriaErabiliDu()) {
+				if (!getZerrenda()[0].jokaldiExtraEgin()) {
 					Arrautza a = new Arrautza(false);
-					this.getZerrenda()[1].getEskukoArrautzak().gehituArrautza(a);
-					this.getZerrenda()[0].getEskukoArrautzak().arrautzaKendu(0);
-					this.getZerrenda()[1].arrautzaKop++;
-					this.getZerrenda()[0].arrautzaKop--; 
+					getZerrenda()[1].getEskukoArrautzak().gehituArrautza(a);
+					getZerrenda()[0].getEskukoArrautzak().arrautzaKendu(0);
+					getZerrenda()[1].arrautzaKop++;
+					getZerrenda()[0].arrautzaKop--; 
 					
 				}	
-				this.getZerrenda()[1].imprimatuEskua();
+				getZerrenda()[1].imprimatuEskua();
 			}
 		}else {
 			System.out.println("Jokua bukatu da");
-			this.getZerrenda()[0].irabazleMezua();
+			getZerrenda()[0].irabazleMezua();
 		}
 		
 	}

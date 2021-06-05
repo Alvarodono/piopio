@@ -26,32 +26,28 @@ public class HasierakoBaraja {
 	//BARAJA BETE METODOA
 	public void barajaBete() {
 		int i = 0,x = 0,p = 0, k = 0;
-		while (i<24) {
+		while (i<48) {
 			lista.gehituKarta(new Karta ("Azeria"));
 			i++;
 		}
-		while (x<44) {
+		while (x<88) {
 			lista.gehituKarta(new Karta ("Habia"));
 			x++;
 		}
-		while (p<60) {
+		while (p<120) {
 			lista.gehituKarta(new Karta ("Oilar"));
 			p++;
 		}
-		while (k<60) {
+		while (k<120) {
 			lista.gehituKarta(new Karta ("Oilo"));
 			k++;
 		}
-		lista.setKartaKop(188);
+		lista.setKartaKop(376);
 	}	
 	
 	
 	//BANAKETA METODOA (KARTA BAT BANATZEKO)
 	public Karta banaketa() { 
-		if (lista.getKartaKop() == 0) {
-			barajaBete(); //gure eskuko kartak ez dira kontutan hartzen
-			ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().erreseteatu();
-		}
 		Karta k = null;
 		Random r = new Random();
 		if(lista.getKartaKop()>1){

@@ -48,7 +48,7 @@ public class Konbinazioak {
 			i = 1;
 		}
 		Karta k1 = new Karta("k1") ,k2 = new Karta("k2") ,k3 = new Karta("k3")  ,k4 = new Karta("k4");		
-		Iterator<Karta> itr = listaKarta.getIteradorea(); 
+		Iterator<Karta> itr = listaKarta.getIteradorea();
 		if(itr.hasNext()) {			
 			k1 = itr.next();
 			if(itr.hasNext()) {
@@ -62,25 +62,25 @@ public class Konbinazioak {
 			}
 		}		
 		int kont = 0;
-		if (k1.getMota() == "Oilo" ) {//eclosionar un huevo
+		if (k1.oiloDenAlaEz() ) {//eclosionar un huevo
 			kont++;
 		}
-		if (k2.getMota() == "Oilo") {
+		if (k2.oiloDenAlaEz()) {
 			kont++;
 		}
-		if (k3 != null && k3.getMota() == "Oilo") {
+		if (k3 != null && k3.oiloDenAlaEz()) {
 			kont++;
 		}
-		if (k4.getMota() == "Oilo") {
+		if (k4.oiloDenAlaEz()) {
 			kont++;			
 		}
 		if (kont >= 2 && arrautzaKop > 0) {
 			erantzuna = true;
 			konbinazioMota = 1;
-		}else if ((ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().kopurua > 0) && ((k1.getMota() == "Oilo" && k2.getMota() == "Oilar" && k3.getMota() == "Habia") || (k1.getMota() == "Oilo" && k2.getMota() == "Habia" && k3.getMota() == "Oilar") || (k1.getMota() == "Oilar" && k2.getMota() == "Oilo" && k3.getMota() == "Habia") || (k1.getMota() == "Oilar" && k2.getMota() == "Habia" && k3.getMota() == "Oilo") || (k1.getMota() == "Habia" && k2.getMota() == "Oilo" && k3.getMota() == "Oilar") || (k1.getMota() == "Habia" && k2.getMota() == "Oilar" && k3.getMota() == "Oilo") || (k1.getMota() == "Oilo" && k2.getMota() == "Oilar" && k4.getMota() == "Habia") || (k1.getMota() == "Oilo" && k2.getMota() == "Habia" && k4.getMota() == "Oilar") || (k1.getMota() == "Oilar" && k2.getMota() == "Oilo" && k4.getMota() == "Habia") || (k1.getMota() == "Oilar" && k2.getMota() == "Habia" && k4.getMota() == "Oilo") || (k1.getMota() == "Habia" && k2.getMota() == "Oilo" && k4.getMota() == "Oilar") || (k1.getMota() == "Habia" && k2.getMota() == "Oilar" && k4.getMota() == "Oilo") || (k1.getMota() == "Oilo" && k3.getMota() == "Oilar" && k4.getMota() == "Habia") || (k1.getMota() == "Oilo" && k3.getMota() == "Habia" && k4.getMota() == "Oilar") || (k1.getMota() == "Oilar" && k3.getMota() == "Habia" && k4.getMota() == "Oilo") || (k1.getMota() == "Oilar" && k3.getMota() == "Oilo" && k4.getMota() == "Habia") || (k1.getMota() == "Habia" && k3.getMota() == "Oilo" && k4.getMota() == "Oilar") || (k1.getMota() == "Habia" && k3.getMota() == "Oilar" && k4.getMota() == "Oilo") || (k2.getMota() == "Oilo" && k3.getMota() == "Oilar" && k4.getMota() == "Habia") || (k2.getMota() == "Oilo" && k3.getMota() == "Habia" && k4.getMota() == "Oilar") || (k2.getMota() == "Oilar" && k3.getMota() == "Oilo" && k4.getMota() == "Habia") || (k2.getMota() == "Oilar" && k3.getMota() == "Habia" && k4.getMota() == "Oilo") || (k2.getMota() == "Habia" && k3.getMota() == "Oilo" && k4.getMota() == "Oilar") || (k2.getMota() == "Habia" && k3.getMota() == "Oilar" && k4.getMota() == "Oilo"))) {//coger huevo de la pila 2
+		}else if ((ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().kopurua > 0) && ((k1.oiloDenAlaEz() && k2.oilarDenAlaEz() && k3.habiaDenAlaEz()) || (k1.oiloDenAlaEz() && k2.habiaDenAlaEz() && k3.oilarDenAlaEz()) || (k1.oilarDenAlaEz() && k2.oiloDenAlaEz() && k3.habiaDenAlaEz()) || (k1.oilarDenAlaEz() && k2.habiaDenAlaEz() && k3.oiloDenAlaEz()) || (k1.habiaDenAlaEz() && k2.oiloDenAlaEz() && k3.oilarDenAlaEz()) || (k1.habiaDenAlaEz() && k2.oilarDenAlaEz() && k3.oiloDenAlaEz()) || (k1.oiloDenAlaEz() && k2.oilarDenAlaEz() && k4.habiaDenAlaEz()) || (k1.oiloDenAlaEz() && k2.habiaDenAlaEz() && k4.oilarDenAlaEz()) || (k1.oilarDenAlaEz() && k2.oiloDenAlaEz() && k4.habiaDenAlaEz()) || (k1.oilarDenAlaEz() && k2.habiaDenAlaEz() && k4.oiloDenAlaEz()) || (k1.habiaDenAlaEz() && k2.oiloDenAlaEz() && k4.oilarDenAlaEz()) || (k1.habiaDenAlaEz() && k2.oilarDenAlaEz() && k4.oiloDenAlaEz()) || (k1.oiloDenAlaEz() && k3.oilarDenAlaEz() && k4.habiaDenAlaEz()) || (k1.oiloDenAlaEz() && k3.habiaDenAlaEz() && k4.oilarDenAlaEz()) || (k1.oilarDenAlaEz() && k3.habiaDenAlaEz() && k4.oiloDenAlaEz()) || (k1.oilarDenAlaEz() && k3.oiloDenAlaEz() && k4.habiaDenAlaEz()) || (k1.habiaDenAlaEz() && k3.oiloDenAlaEz() && k4.oilarDenAlaEz()) || (k1.habiaDenAlaEz() && k3.oilarDenAlaEz() && k4.oiloDenAlaEz()) || (k2.oiloDenAlaEz() && k3.oilarDenAlaEz() && k4.habiaDenAlaEz()) || (k2.oiloDenAlaEz() && k3.habiaDenAlaEz() && k4.oilarDenAlaEz()) || (k2.oilarDenAlaEz() && k3.oiloDenAlaEz() && k4.habiaDenAlaEz()) || (k2.oilarDenAlaEz() && k3.habiaDenAlaEz() && k4.oiloDenAlaEz()) || (k2.habiaDenAlaEz() && k3.oiloDenAlaEz() && k4.oilarDenAlaEz()) || (k2.habiaDenAlaEz() && k3.oilarDenAlaEz() && k4.oiloDenAlaEz()))) {//coger huevo de la pila 2
 				erantzuna = true;
 				konbinazioMota = 2;	
-		}else if((ListaJokalaria.getNireListaJokalariak().getZerrenda()[i].arrautzaKop > 0) && (k1.getMota() == "Azeria" || k2.getMota() == "Azeria" || k3.getMota() == "Azeria" || k4.getMota() == "Azeria" ))	{
+		}else if((ListaJokalaria.getNireListaJokalariak().getZerrenda()[i].arrautzaKop > 0) && (k1.azeriDenAlaEz() || k2.azeriDenAlaEz() || k3.azeriDenAlaEz() || k4.azeriDenAlaEz() ))	{
 				erantzuna = true;
 				konbinazioMota = 3;
 		}

@@ -39,7 +39,7 @@ public abstract class Jokalaria {
 	}	
 	
 	//GET ADINA METODOA
-	public int getAdina() {
+	protected int getAdina() {
 		return this.adina;
 	}
 	
@@ -49,40 +49,40 @@ public abstract class Jokalaria {
 	}
 	
 	//PUNTUAK ERRESETEATU METODOA
-	public void puntuakErreseteatu() {
+	protected void puntuakErreseteatu() {
 		puntuak = 0;
 	}
 	
 	//DENA ERRESETEATU METODOA 
-	public void denaErreseteatu() {
+	protected void denaErreseteatu() {
 		this.getEskukoKartak().erreseteatu();
 		this.getEskukoArrautzak().erreseteatu();
 		this.puntuakErreseteatu();
 	}
 	
 	//GET PUNTUAK METODOA
-	public int getPuntuak() {
+	protected int getPuntuak() {
 		return this.puntuak;
 	}
 	
 	//GET AZERIA ERABILI DU METODOA
-	public boolean getAzeriaErabiliDu() {
+	protected boolean getAzeriaErabiliDu() {
 		return this.azeriaErabiliDu;
 	}
 	
 	
 	//JOKALDIA EGIN METODOA
-	public abstract void jokaldiaEgin();
+	protected abstract void jokaldiaEgin();
 	
 	//JOKALDI EXTRA EGIN METODOA
-	public abstract boolean jokaldiExtraEgin();
+	protected abstract boolean jokaldiExtraEgin();
 		
 	
 	//IMRIMATU ESKUA METODOA
-	public abstract void imprimatuEskua();
+	protected abstract void imprimatuEskua();
 	
 	//IRABAZLE MEZUA METODOA
-	public abstract void irabazleMezua();
+	protected abstract void irabazleMezua();
 	
 	
 	

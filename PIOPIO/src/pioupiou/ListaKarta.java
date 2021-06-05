@@ -83,7 +83,7 @@ public class ListaKarta {
 		Iterator<Karta> itr = this.getIteradorea();
 		while (itr.hasNext() && kont <2) {
 			k = itr.next();
-			if (k.getMota() == "Oilar") {
+			if (k.oilarDenAlaEz()) {
 				kont++;
 			}
 		}
@@ -99,7 +99,7 @@ public class ListaKarta {
 		Iterator<Karta> itr = this.getIteradorea();
 		while (itr.hasNext() && k == null) {
 			b = itr.next();
-			if (b.getMota() == sarrera) {
+			if (b.motaBerdina(sarrera)) {
 				k = b;
 			}
 		}

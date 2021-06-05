@@ -24,7 +24,7 @@ public class JokalariCPU extends Jokalaria{
 		//this.arrautzaKop++;
 		this.azeriaErabiliDu = false;
 		Karta k1 = null,k2 = null,k3 = null,k4 = null, baztertzekoKarta;
-		imprimatuEskua();
+		//imprimatuEskua();
 		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.arrautzaKop, txandaZenbakia)) {
 			Iterator<Karta> itr = this.getEskukoKartak().getIteradorea();
 			while (itr.hasNext()) {
@@ -34,28 +34,22 @@ public class JokalariCPU extends Jokalaria{
 				k4 = itr.next();			
 			}
 			baztertzekoKarta = zerBaztertuCPU(k1, k2, k3, k4);
-			ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(baztertzekoKarta);
 			this.getEskukoKartak().kenduKartaKartaz(baztertzekoKarta);					
 			this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-			imprimatuEskua();
+			//imprimatuEskua();
 			System.out.println("Makinak karta bat baztertu du eta beste bat hartu du.");
 		}else {
 			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1) {//doble oilo
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());			
 				this.puntuak++;
 				this.arrautzaKop--;
-				imprimatuEskua();
+				//imprimatuEskua();
 				System.out.println("Makinak bi oilo erabili ditu arrautza bat txita bihurtzeko.");
 				
 			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {//oilo oilar habia
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilar"));
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Habia"));
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilar"));
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Habia"));
@@ -64,12 +58,10 @@ public class JokalariCPU extends Jokalaria{
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
 				this.arrautzaKop++;
-				imprimatuEskua();
+				//imprimatuEskua();
 				System.out.println("Makinak oilo bat, oilar bat eta habia bat erabili ditu arrautza bat hartzeko.");
 				
 			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 3){//zorro
-
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
 				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());					
 				this.azeriaErabiliDu = true;
@@ -94,26 +86,22 @@ public class JokalariCPU extends Jokalaria{
 			k2 = itr.next();
 			k3 = itr.next();
 			k4 = itr.next();
-			if (k1.getMota() == "Oilar" && kont != 2) {
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k1);
+			if (k1.oilarDenAlaEz() && kont != 2) {
 				this.getEskukoKartak().kenduKartaKartaz(k1);
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 				kont++;						
 			}
-			if (k2.getMota() == "Oilar" && kont != 2) {
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k2);
+			if (k2.oilarDenAlaEz() && kont != 2) {
 				this.getEskukoKartak().kenduKartaKartaz(k2);
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 				kont++;						
 			}
-			if (k3.getMota() == "Oilar" && kont != 2) {
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k3);
+			if (k3.oilarDenAlaEz() && kont != 2) {
 				this.getEskukoKartak().kenduKartaKartaz(k3);
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 				kont++;						
 			}
-			if (k4.getMota() == "Oilar" && kont != 2) {
-				ListaKartaBaztertzeko.getNireListaKartaBaztertzeko().gehituKarta(k4);
+			if (k4.oilarDenAlaEz() && kont != 2) {
 				this.getEskukoKartak().kenduKartaKartaz(k4);
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 				kont++;						
@@ -131,16 +119,16 @@ public class JokalariCPU extends Jokalaria{
 	public void imprimatuEskua() {
 		System.out.println("Makinaren kartak:");
 		System.out.println(" ");
-		System.out.println("╔═════════════════════════╗");
+		System.out.println("╔═══════════════════════════════╗");
 		this.getEskukoKartak().imprimatuKartak();
-		System.out.println("╠═════════════════════════╣");
+		System.out.println("╠═══════════════════════════════╣");
 		System.out.print("║");
 		System.out.print("IA-ren arrautzak:");
 		System.out.print(this.arrautzaKop);
 		System.out.print("    Txitak:");
 		System.out.print(this.puntuak);
 		System.out.println(" ║");
-		System.out.println("╚═════════════════════════╝");
+		System.out.println("╚═══════════════════════════════╝");
 		System.out.println(" ");
 	}
 
@@ -158,156 +146,156 @@ public class JokalariCPU extends Jokalaria{
 		int habiaKont = 0;
 		int oiloKont = 0;
 		int oilarKont = 0;
-		if (k1.getMota() == "Azeria") {
+		if (k1.azeriDenAlaEz()) {
 			azeriKont++;
 		}
-		if (k2.getMota() == "Azeria") {
+		if (k2.azeriDenAlaEz()) {
 			azeriKont++;
 		}
-		if (k3.getMota() == "Azeria") {
+		if (k3.azeriDenAlaEz()) {
 			azeriKont++;
 		}
-		if (k4.getMota() == "Azeria") {
+		if (k4.azeriDenAlaEz()) {
 			azeriKont++;
 		}
-		if (k1.getMota() == "Habia") {
+		if (k1.habiaDenAlaEz()) {
 			habiaKont++;
 		}
-		if (k2.getMota() == "Habia") {
+		if (k2.habiaDenAlaEz()) {
 			habiaKont++;
 		}
-		if (k3.getMota() == "Habia") {
+		if (k3.habiaDenAlaEz()) {
 			habiaKont++;
 		}
-		if (k4.getMota() == "Habia") {
+		if (k4.habiaDenAlaEz()) {
 			habiaKont++;
 		}
-		if (k1.getMota() == "Oilo") {
+		if (k1.oiloDenAlaEz()) {
 			oiloKont++;
 		}
-		if (k2.getMota() == "Oilo") {
+		if (k2.oiloDenAlaEz()) {
 			oiloKont++;
 		}
-		if (k3.getMota() == "Oilo") {
+		if (k3.oiloDenAlaEz()) {
 			oiloKont++;
 		}
-		if (k4.getMota() == "Oilo") {
+		if (k4.oiloDenAlaEz()) {
 			oiloKont++;
 		}
-		if (k1.getMota() == "Oilar") {
+		if (k1.oilarDenAlaEz()) {
 			oilarKont++;
 		}
-		if (k2.getMota() == "Oilar") {
+		if (k2.oilarDenAlaEz()) {
 			oilarKont++;
 		}
-		if (k3.getMota() == "Oilar") {
+		if (k3.oilarDenAlaEz()) {
 			oilarKont++;
 		}
-		if (k4.getMota() == "Oilar") {
+		if (k4.oilarDenAlaEz()) {
 			oilarKont++;
 		}
 		if (oiloKont > 2) { //1.egoera
-			if (k1.getMota() == "Oilo") {
+			if (k1.oiloDenAlaEz()) {
 				k = k1;
-			}else if (k2.getMota() == "Oilo") {
+			}else if (k2.oiloDenAlaEz()) {
 				k = k2;
 			}
 		}else if (oilarKont > 2) { //2.egoera
-			if (k1.getMota() == "Oilar") {
+			if (k1.oilarDenAlaEz()) {
 				k = k1;
-			}else if (k2.getMota() == "Oilar") {
+			}else if (k2.oilarDenAlaEz()) {
 				k = k2;
 			}
 		}else if (habiaKont > 1) { //3.egoera
-			if (k1.getMota() == "Habia") {
+			if (k1.habiaDenAlaEz()) {
 				k = k1;
-			}else if (k2.getMota() == "Habia") {
+			}else if (k2.habiaDenAlaEz()) {
 				k = k2;
-			}else if (k3.getMota() == "Habia") {
+			}else if (k3.habiaDenAlaEz()) {
 				k = k3;
 			}
 		}else if (azeriKont > 1) { //4.egoera
-			if (k1.getMota() == "Azeria") {
+			if (k1.azeriDenAlaEz()) {
 				k = k1;
-			}else if (k2.getMota() == "Azeria") {
+			}else if (k2.azeriDenAlaEz()) {
 				k = k2;
-			}else if (k3.getMota() == "Azeria") {
+			}else if (k3.azeriDenAlaEz()) {
 				k = k3;
 			}
 		}else if (oiloKont == 2 && oilarKont == 2) { //5.egoera
-			if (k1.getMota() == "Oilar") {//descartar gallo
+			if (k1.oilarDenAlaEz()) {//descartar gallo
 				k = k1;
-			}else if (k2.getMota() == "Oilar") {
+			}else if (k2.oilarDenAlaEz()) {
 				k = k2;
-			}else if (k3.getMota() == "Oilar") {
+			}else if (k3.oilarDenAlaEz()) {
 				k = k3;
 			}
 		}else if (azeriKont == 1 && habiaKont == 1 && oiloKont == 2) { //6.egoera
 			if (this.arrautzaKop > 0) {//descartar nido
-				if (k1.getMota() == "Habia") {
+				if (k1.habiaDenAlaEz()) {
 					k = k1;
-				}else if (k2.getMota() == "Habia") {
+				}else if (k2.habiaDenAlaEz()) {
 					k = k2;
-				}else if (k3.getMota() == "Habia") {
+				}else if (k3.habiaDenAlaEz()) {
 					k = k3;
-				}else if (k4.getMota() == "Habia") {
+				}else if (k4.habiaDenAlaEz()) {
 					k = k4;
 				}
 			}else { // descartar gallina
-				if (k1.getMota() == "Oilo") {
+				if (k1.oiloDenAlaEz()) {
 					k = k1;
-				}else if (k2.getMota() == "Oilo") {
+				}else if (k2.oiloDenAlaEz()) {
 					k = k2;
-				}else if (k3.getMota() == "Oilo") {
+				}else if (k3.oiloDenAlaEz()) {
 					k = k3;
 				}
 			}
 		}else if (azeriKont == 1 && habiaKont == 1 && oilarKont == 2) { //7.egoera
 			if (this.arrautzaKop > 0) { //descartar zorro
-				if (k1.getMota() == "Azeria") {
+				if (k1.azeriDenAlaEz()) {
 					k = k1;
-				}else if (k2.getMota() == "Azeria") {
+				}else if (k2.azeriDenAlaEz()) {
 					k = k2;
-				}else if (k3.getMota() == "Azeria") {
+				}else if (k3.azeriDenAlaEz()) {
 					k = k3;
-				}else if (k4.getMota() == "Azeria") {
+				}else if (k4.azeriDenAlaEz()) {
 					k = k4;
 				}
 			}else {	//descartar gallo
-				if (k1.getMota() == "Oilar") {
+				if (k1.oilarDenAlaEz()) {
 					k = k1;
-				}else if (k2.getMota() == "Oilar") {
+				}else if (k2.oilarDenAlaEz()) {
 					k = k2;
-				}else if (k3.getMota() == "Oilar") {
+				}else if (k3.oilarDenAlaEz()) {
 					k = k3;
 				}
 				
 			}
 		}else if (oiloKont == 2 && azeriKont == 1 && oilarKont == 1) { //8.egoera
-			if (k1.getMota() == "Oilo") {
+			if (k1.oiloDenAlaEz()) {
 				k = k1;		
-			}else if (k2.getMota() == "Oilo") {
+			}else if (k2.oiloDenAlaEz()) {
 				k = k2;
-			}else if (k3.getMota() == "Oilo") {
+			}else if (k3.oiloDenAlaEz()) {
 				k = k3;
 			}
 		}else if (oilarKont == 2 && azeriKont == 1 && oiloKont == 1) { //9.egoera
 			if (this.arrautzaKop > 0) { //descartar zorro
-				if (k1.getMota() == "Azeria") {
+				if (k1.azeriDenAlaEz()) {
 					k = k1;		
-				}else if (k2.getMota() == "Azeria") {
+				}else if (k2.azeriDenAlaEz()) {
 					k = k2;
-				}else if (k3.getMota() == "Azeria") {
+				}else if (k3.azeriDenAlaEz()) {
 					k = k3;
-				}else if (k4.getMota() == "Azeria") {
+				}else if (k4.azeriDenAlaEz()) {
 					k = k4;
 				}
 			}else {//descartar gallo
-				if (k1.getMota() == "Oilar") {
+				if (k1.oilarDenAlaEz()) {
 					k = k1;		
-				}else if (k2.getMota() == "Oilar") {
+				}else if (k2.oilarDenAlaEz()) {
 					k = k2;
-				}else if (k3.getMota() == "Oilar") {
+				}else if (k3.oilarDenAlaEz()) {
 					k = k3;
 				}
 				

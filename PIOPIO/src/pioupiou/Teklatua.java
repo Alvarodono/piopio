@@ -37,7 +37,7 @@ public class Teklatua {
 					egokia=true;
 				}
 				catch (NumberFormatException e) {
-					System.out.println("Bakarrik zenbaki osoak onartzen dira.");
+					System.out.println("Bakarrik zenbaki osoak onartzen dira, saiatu  berriro:");
 					zenb=this.irakurriString();
 				}
 			}
